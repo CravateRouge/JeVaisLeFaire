@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_4utcQL9cEeWjHMzZ4m8AXQ" name="model">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_4x4sEL9cEeWjHMzZ4m8AXQ" name="Activity1"/>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_431jEL9cEeWjHMzZ4m8AXQ" name="Interaction1"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_bHcYQL9jEeWjHMzZ4m8AXQ" name="Joueur"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_k4CvoL9jEeWjHMzZ4m8AXQ" name="Choisir mode"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_plxqEL9jEeWjHMzZ4m8AXQ" name="Choisir bataille">
+    <include xmi:id="_dv0BUL9mEeWjHMzZ4m8AXQ" addition="_k4CvoL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tvvwIL9jEeWjHMzZ4m8AXQ" name="" memberEnd="_tvvwIb9jEeWjHMzZ4m8AXQ _tvvwJL9jEeWjHMzZ4m8AXQ">
+    <ownedEnd xmi:id="_tvvwIb9jEeWjHMzZ4m8AXQ" name="choisir bataille" type="_plxqEL9jEeWjHMzZ4m8AXQ" association="_tvvwIL9jEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tvvwIr9jEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tvvwI79jEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_tvvwJL9jEeWjHMzZ4m8AXQ" name="joueur" type="_bHcYQL9jEeWjHMzZ4m8AXQ" association="_tvvwIL9jEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tvvwJb9jEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tvvwJr9jEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vSDQYL9jEeWjHMzZ4m8AXQ" name="A_choisir mode_joueur" memberEnd="_vSDQYb9jEeWjHMzZ4m8AXQ _vSDQZL9jEeWjHMzZ4m8AXQ">
+    <ownedEnd xmi:id="_vSDQYb9jEeWjHMzZ4m8AXQ" name="choisir mode" type="_k4CvoL9jEeWjHMzZ4m8AXQ" association="_vSDQYL9jEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vSDQYr9jEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vSDQY79jEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_vSDQZL9jEeWjHMzZ4m8AXQ" name="joueur" type="_bHcYQL9jEeWjHMzZ4m8AXQ" association="_vSDQYL9jEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vSDQZb9jEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vSDQZr9jEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_1LtycL9jEeWjHMzZ4m8AXQ" name="Choisir nombre bateaux">
+    <extend xmi:id="_iC_GsL9mEeWjHMzZ4m8AXQ" extendedCase="_2-wLcL9lEeWjHMzZ4m8AXQ" extensionLocation="_iGTgcL9mEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ORsi8L9lEeWjHMzZ4m8AXQ" name="Choisir démo">
+    <generalization xmi:id="_aaKJkL9lEeWjHMzZ4m8AXQ" general="_k4CvoL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Sy2Z8L9lEeWjHMzZ4m8AXQ" name="Choisir 1 joueur">
+    <generalization xmi:id="_a92FcL9lEeWjHMzZ4m8AXQ" general="_k4CvoL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_WHvSIL9lEeWjHMzZ4m8AXQ" name="Choisir 2 joueurs">
+    <generalization xmi:id="_bgopcL9lEeWjHMzZ4m8AXQ" general="_k4CvoL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_gStRUL9lEeWjHMzZ4m8AXQ" name="Choisir classique">
+    <generalization xmi:id="_xRDo0L9lEeWjHMzZ4m8AXQ" general="_plxqEL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_iuBdML9lEeWjHMzZ4m8AXQ" name="Choisir radar">
+    <generalization xmi:id="_yVKKIL9lEeWjHMzZ4m8AXQ" general="_plxqEL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_kfpL0L9lEeWjHMzZ4m8AXQ" name="Choisir artillerie">
+    <generalization xmi:id="_y6j9QL9lEeWjHMzZ4m8AXQ" general="_plxqEL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_o6wFML9lEeWjHMzZ4m8AXQ" name="Choisir alerte">
+    <generalization xmi:id="_x0fGAL9lEeWjHMzZ4m8AXQ" general="_plxqEL9jEeWjHMzZ4m8AXQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_z_aFcL9lEeWjHMzZ4m8AXQ" name="A_joueur_choisir nombre bateaux" memberEnd="_z_aFcb9lEeWjHMzZ4m8AXQ _z_aFdL9lEeWjHMzZ4m8AXQ">
+    <ownedEnd xmi:id="_z_aFcb9lEeWjHMzZ4m8AXQ" name="joueur" type="_bHcYQL9jEeWjHMzZ4m8AXQ" association="_z_aFcL9lEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_aFcr9lEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_aFc79lEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_z_aFdL9lEeWjHMzZ4m8AXQ" name="choisir nombre bateaux" type="_1LtycL9jEeWjHMzZ4m8AXQ" association="_z_aFcL9lEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z_aFdb9lEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z_aFdr9lEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2-wLcL9lEeWjHMzZ4m8AXQ" name="Jouer bataille">
+    <include xmi:id="_OVwHEL9mEeWjHMzZ4m8AXQ" addition="_k4CvoL9jEeWjHMzZ4m8AXQ"/>
+    <include xmi:id="_cwmnEL9mEeWjHMzZ4m8AXQ" addition="_plxqEL9jEeWjHMzZ4m8AXQ"/>
+    <extensionPoint xmi:id="_iGTgcL9mEeWjHMzZ4m8AXQ" name="point"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MYzSML9mEeWjHMzZ4m8AXQ" name="A_joueur_jouer bataille" memberEnd="_MYzSMb9mEeWjHMzZ4m8AXQ _MYz5QL9mEeWjHMzZ4m8AXQ">
+    <ownedEnd xmi:id="_MYzSMb9mEeWjHMzZ4m8AXQ" name="joueur" type="_bHcYQL9jEeWjHMzZ4m8AXQ" association="_MYzSML9mEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MYzSMr9mEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MYzSM79mEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_MYz5QL9mEeWjHMzZ4m8AXQ" name="jouer bataille" type="_2-wLcL9lEeWjHMzZ4m8AXQ" association="_MYzSML9mEeWjHMzZ4m8AXQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MYz5Qb9mEeWjHMzZ4m8AXQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MYz5Qr9mEeWjHMzZ4m8AXQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_2iBWsL9mEeWjHMzZ4m8AXQ" name="Bataille Navale"/>
+</uml:Model>
