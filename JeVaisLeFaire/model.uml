@@ -74,7 +74,7 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_2iBWsL9mEeWjHMzZ4m8AXQ" name="Bataille Navale"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_IjHRscHlEeW6dMMZWl4vPA" name="package">
+  <packagedElement xmi:type="uml:Package" xmi:id="_IjHRscHlEeW6dMMZWl4vPA" name="Menu">
     <packagedElement xmi:type="uml:UseCase" xmi:id="_k4CvoL9jEeWjHMzZ4m8AXQ" name="Choisir mode"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_plxqEL9jEeWjHMzZ4m8AXQ" name="Choisir bataille">
       <include xmi:id="_dv0BUL9mEeWjHMzZ4m8AXQ" addition="_k4CvoL9jEeWjHMzZ4m8AXQ"/>
