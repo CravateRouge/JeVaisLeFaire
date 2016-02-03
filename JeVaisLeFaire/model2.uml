@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_xdhWcMn4EeWpOt4S-MdBow" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_xotSwMn4EeWpOt4S-MdBow" name="Livrer bataille" node="_IlSjQMn5EeWpOt4S-MdBow _KnuVEMn5EeWpOt4S-MdBow _wx5KEMn5EeWpOt4S-MdBow __UG2UMn5EeWpOt4S-MdBow _mN_4EMn6EeWpOt4S-MdBow _vs2YIMn6EeWpOt4S-MdBow _4N-EoMn6EeWpOt4S-MdBow _G_c78Mn7EeWpOt4S-MdBow _jeERoMn7EeWpOt4S-MdBow _pYg20Mn7EeWpOt4S-MdBow _vT2M0Mn7EeWpOt4S-MdBow _6oJyoMn7EeWpOt4S-MdBow _Ib-u4Mn8EeWpOt4S-MdBow _Rk8egMn8EeWpOt4S-MdBow _WAh5AMn8EeWpOt4S-MdBow" group="_kG9IgMn5EeWpOt4S-MdBow _o3thwMn5EeWpOt4S-MdBow">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_cBOXgMn5EeWpOt4S-MdBow" target="_KnuVEMn5EeWpOt4S-MdBow" source="_IlSjQMn5EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_45EskMn5EeWpOt4S-MdBow" target="_wx5KEMn5EeWpOt4S-MdBow" source="_KnuVEMn5EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Fuk_YMn6EeWpOt4S-MdBow" target="__UG2UMn5EeWpOt4S-MdBow" source="_wx5KEMn5EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_IY0_IMn6EeWpOt4S-MdBow" name="false" target="_KnuVEMn5EeWpOt4S-MdBow" source="__UG2UMn5EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_pagQUMn6EeWpOt4S-MdBow" name="true" target="_mN_4EMn6EeWpOt4S-MdBow" source="__UG2UMn5EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_x1W8wMn6EeWpOt4S-MdBow" target="_vs2YIMn6EeWpOt4S-MdBow" source="_mN_4EMn6EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_WYaC8Mn7EeWpOt4S-MdBow" name="vide" target="_4N-EoMn6EeWpOt4S-MdBow" source="_vs2YIMn6EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_b5shQMn7EeWpOt4S-MdBow" name="touché" target="_G_c78Mn7EeWpOt4S-MdBow" source="_vs2YIMn6EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_lapTEMn7EeWpOt4S-MdBow" target="_jeERoMn7EeWpOt4S-MdBow" source="_G_c78Mn7EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_qSl5cMn7EeWpOt4S-MdBow" target="_pYg20Mn7EeWpOt4S-MdBow" source="_jeERoMn7EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_2JsDQMn7EeWpOt4S-MdBow" name="true" target="_vT2M0Mn7EeWpOt4S-MdBow" source="_pYg20Mn7EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_8MPbkMn7EeWpOt4S-MdBow" name="false" target="_6oJyoMn7EeWpOt4S-MdBow" source="_pYg20Mn7EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_CS-JQMn8EeWpOt4S-MdBow" target="_6oJyoMn7EeWpOt4S-MdBow" source="_vT2M0Mn7EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Lhr7kMn8EeWpOt4S-MdBow" target="_Ib-u4Mn8EeWpOt4S-MdBow" source="_6oJyoMn7EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_TFPzoMn8EeWpOt4S-MdBow" target="_Rk8egMn8EeWpOt4S-MdBow" source="_Ib-u4Mn8EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_XiCIAMn8EeWpOt4S-MdBow" name="true" target="_WAh5AMn8EeWpOt4S-MdBow" source="_Rk8egMn8EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_alNlIMn8EeWpOt4S-MdBow" name="false" target="_KnuVEMn5EeWpOt4S-MdBow" source="_Rk8egMn8EeWpOt4S-MdBow"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_uHi8UMn8EeWpOt4S-MdBow" target="_Rk8egMn8EeWpOt4S-MdBow" source="_4N-EoMn6EeWpOt4S-MdBow"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_kG9IgMn5EeWpOt4S-MdBow" name="Joueur" node="_IlSjQMn5EeWpOt4S-MdBow _KnuVEMn5EeWpOt4S-MdBow"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_o3thwMn5EeWpOt4S-MdBow" name="Systeme" node="_wx5KEMn5EeWpOt4S-MdBow __UG2UMn5EeWpOt4S-MdBow _mN_4EMn6EeWpOt4S-MdBow _vs2YIMn6EeWpOt4S-MdBow _4N-EoMn6EeWpOt4S-MdBow _G_c78Mn7EeWpOt4S-MdBow _jeERoMn7EeWpOt4S-MdBow _pYg20Mn7EeWpOt4S-MdBow _vT2M0Mn7EeWpOt4S-MdBow _6oJyoMn7EeWpOt4S-MdBow _Ib-u4Mn8EeWpOt4S-MdBow _Rk8egMn8EeWpOt4S-MdBow _WAh5AMn8EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_IlSjQMn5EeWpOt4S-MdBow" outgoing="_cBOXgMn5EeWpOt4S-MdBow" inPartition="_kG9IgMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_KnuVEMn5EeWpOt4S-MdBow" name="Choisir coordonnées" incoming="_cBOXgMn5EeWpOt4S-MdBow _IY0_IMn6EeWpOt4S-MdBow _alNlIMn8EeWpOt4S-MdBow" outgoing="_45EskMn5EeWpOt4S-MdBow" inPartition="_kG9IgMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_wx5KEMn5EeWpOt4S-MdBow" name="Tester validité coordonnées" incoming="_45EskMn5EeWpOt4S-MdBow" outgoing="_Fuk_YMn6EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="__UG2UMn5EeWpOt4S-MdBow" incoming="_Fuk_YMn6EeWpOt4S-MdBow" outgoing="_IY0_IMn6EeWpOt4S-MdBow _pagQUMn6EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_mN_4EMn6EeWpOt4S-MdBow" name="Tester contenu coordonnées" incoming="_pagQUMn6EeWpOt4S-MdBow" outgoing="_x1W8wMn6EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_vs2YIMn6EeWpOt4S-MdBow" incoming="_x1W8wMn6EeWpOt4S-MdBow" outgoing="_WYaC8Mn7EeWpOt4S-MdBow _b5shQMn7EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_4N-EoMn6EeWpOt4S-MdBow" name="Considerer la case comme testée" incoming="_WYaC8Mn7EeWpOt4S-MdBow" outgoing="_uHi8UMn8EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_G_c78Mn7EeWpOt4S-MdBow" name="Considerer le bateau comme touché a ces coordonnées" incoming="_b5shQMn7EeWpOt4S-MdBow" outgoing="_lapTEMn7EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_jeERoMn7EeWpOt4S-MdBow" name="Tester si le bateau est coulé" incoming="_lapTEMn7EeWpOt4S-MdBow" outgoing="_qSl5cMn7EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_pYg20Mn7EeWpOt4S-MdBow" incoming="_qSl5cMn7EeWpOt4S-MdBow" outgoing="_2JsDQMn7EeWpOt4S-MdBow _8MPbkMn7EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_vT2M0Mn7EeWpOt4S-MdBow" name="Considerer le bateau comme coulé" incoming="_2JsDQMn7EeWpOt4S-MdBow" outgoing="_CS-JQMn8EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_6oJyoMn7EeWpOt4S-MdBow" incoming="_8MPbkMn7EeWpOt4S-MdBow _CS-JQMn8EeWpOt4S-MdBow" outgoing="_Lhr7kMn8EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_Ib-u4Mn8EeWpOt4S-MdBow" name="Tester si tous les bateaux sont coulés" incoming="_Lhr7kMn8EeWpOt4S-MdBow" outgoing="_TFPzoMn8EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_Rk8egMn8EeWpOt4S-MdBow" incoming="_TFPzoMn8EeWpOt4S-MdBow _uHi8UMn8EeWpOt4S-MdBow" outgoing="_XiCIAMn8EeWpOt4S-MdBow _alNlIMn8EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_WAh5AMn8EeWpOt4S-MdBow" incoming="_XiCIAMn8EeWpOt4S-MdBow" inPartition="_o3thwMn5EeWpOt4S-MdBow"/>
+  </packagedElement>
+</uml:Model>
