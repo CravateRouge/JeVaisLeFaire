@@ -168,7 +168,7 @@
   <packagedElement xmi:type="uml:UseCase" xmi:id="_OPTlgMzHEeWXqMHbq8Wz0Q" name="Choisir nombre bateaux">
     <extend xmi:type="uml:Extend" xmi:id="_u_RboMzHEeWXqMHbq8Wz0Q" extendedCase="_U-n9MMzHEeWXqMHbq8Wz0Q" extensionLocation="_u_TQ0MzHEeWXqMHbq8Wz0Q"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_Q17pgMzHEeWXqMHbq8Wz0Q" name="Jouer Bataille">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Q17pgMzHEeWXqMHbq8Wz0Q" name="Jouer bataille">
     <include xmi:type="uml:Include" xmi:id="_yy3pEMzHEeWXqMHbq8Wz0Q" addition="_Rx1REMzHEeWXqMHbq8Wz0Q"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_Rx1REMzHEeWXqMHbq8Wz0Q" name="S'authentifier"/>

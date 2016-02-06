@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:configuration="http://www.eclipse.org/papyrus/infra/viewpoints/configuration" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:configuration="http://www.eclipse.org/papyrus/infra/viewpoints/configuration" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/viewpoints/policy/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
   <notation:Diagram xmi:id="_xpBb0Mn4EeWpOt4S-MdBow" type="PapyrusUMLActivityDiagram" name="Jouer bataille" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_xpBb0cn4EeWpOt4S-MdBow" type="2001">
       <children xmi:type="notation:DecorationNode" xmi:id="_xpBb0sn4EeWpOt4S-MdBow" type="5001"/>
@@ -200,10 +200,8 @@
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_xpBb48n4EeWpOt4S-MdBow" name="diagram_compatibility_version" stringValue="1.1.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_xpBb5Mn4EeWpOt4S-MdBow"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_xpBb5cn4EeWpOt4S-MdBow">
-      <owner xmi:type="uml:Model" href="model2.uml#_xdhWcMn4EeWpOt4S-MdBow"/>
-    </styles>
-    <element xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_xpBb5cn4EeWpOt4S-MdBow"/>
+    <element xsi:nil="true"/>
     <edges xmi:type="notation:Connector" xmi:id="_cBW6YMn5EeWpOt4S-MdBow" type="4004" source="_IlYp4Mn5EeWpOt4S-MdBow" target="_KolQsMn5EeWpOt4S-MdBow">
       <children xmi:type="notation:DecorationNode" xmi:id="_cBW6Y8n5EeWpOt4S-MdBow" type="6003">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cBXhcMn5EeWpOt4S-MdBow" y="20"/>
@@ -632,10 +630,8 @@
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_4PKPg8pSEeWBy_Kc6aORag" name="diagram_compatibility_version" stringValue="1.1.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_4PKPhMpSEeWBy_Kc6aORag"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_4PKPhcpSEeWBy_Kc6aORag">
-      <owner xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
-    </styles>
-    <element xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_4PKPhcpSEeWBy_Kc6aORag"/>
+    <element xsi:nil="true"/>
     <edges xmi:type="notation:Connector" xmi:id="_cw9_gMpTEeWBy_Kc6aORag" type="4004" source="_QY3aYMpTEeWBy_Kc6aORag" target="_R46Q0MpTEeWBy_Kc6aORag">
       <children xmi:type="notation:DecorationNode" xmi:id="_cw9_g8pTEeWBy_Kc6aORag" type="6003">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cw9_hMpTEeWBy_Kc6aORag" y="20"/>
@@ -826,10 +822,8 @@
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_nQLMk8pXEeWBy_Kc6aORag" name="diagram_compatibility_version" stringValue="1.1.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_nQLMlMpXEeWBy_Kc6aORag"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_nQLMlcpXEeWBy_Kc6aORag">
-      <owner xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
-    </styles>
-    <element xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_nQLMlcpXEeWBy_Kc6aORag"/>
+    <element xsi:nil="true"/>
     <edges xmi:type="notation:Connector" xmi:id="_bEJs0MpdEeWBy_Kc6aORag" type="4004" source="_lM0iwMpZEeWBy_Kc6aORag" target="_V3HnQMpdEeWBy_Kc6aORag">
       <children xmi:type="notation:DecorationNode" xmi:id="_bEJs08pdEeWBy_Kc6aORag" type="6003">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bEJs1MpdEeWBy_Kc6aORag" y="20"/>
@@ -1014,10 +1008,8 @@
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_hEjzRsphEeWBy_Kc6aORag" name="diagram_compatibility_version" stringValue="1.1.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_hEjzR8phEeWBy_Kc6aORag"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_hEjzSMphEeWBy_Kc6aORag">
-      <owner xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
-    </styles>
-    <element xmi:type="uml:Interaction" href="model2.uml#_fgfYcMphEeWBy_Kc6aORag"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_hEjzSMphEeWBy_Kc6aORag"/>
+    <element xsi:nil="true"/>
     <edges xmi:type="notation:Edge" xmi:id="_bZqQgMpiEeWBy_Kc6aORag" type="4003" source="__1UKscphEeWBy_Kc6aORag" target="_arNPEMpiEeWBy_Kc6aORag">
       <children xmi:type="notation:DecorationNode" xmi:id="_bZqQhMpiEeWBy_Kc6aORag" type="6001">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_bZqQhcpiEeWBy_Kc6aORag" x="1" y="-13"/>
@@ -1380,10 +1372,9 @@
     <styles xmi:type="notation:StringValueStyle" xmi:id="_rYlV4cpjEeWBy_Kc6aORag" name="diagram_compatibility_version" stringValue="1.1.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_rYlV4spjEeWBy_Kc6aORag"/>
     <styles xmi:type="style:PapyrusViewStyle" xmi:id="_rYlV48pjEeWBy_Kc6aORag">
-      <owner xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
       <configuration xmi:type="configuration:PapyrusDiagram" href="platform:/plugin/org.eclipse.papyrus.infra.viewpoints.policy/builtin/default.configuration#_7wLmk9xhEeOqHvRyiN87hA"/>
     </styles>
-    <element xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
+    <element xsi:nil="true"/>
     <edges xmi:type="notation:Connector" xmi:id="_x0YUoMpjEeWBy_Kc6aORag" type="4001" source="_vESyoMpjEeWBy_Kc6aORag" target="_jgvacMpkEeWBy_Kc6aORag">
       <children xmi:type="notation:DecorationNode" xmi:id="_x0YUo8pjEeWBy_Kc6aORag" type="6001">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_x0YUpMpjEeWBy_Kc6aORag" x="548"/>
@@ -1701,10 +1692,8 @@
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_2JkUkczGEeWXqMHbq8Wz0Q" name="diagram_compatibility_version" stringValue="1.1.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_2JkUkszGEeWXqMHbq8Wz0Q"/>
-    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_2JkUk8zGEeWXqMHbq8Wz0Q">
-      <owner xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
-    </styles>
-    <element xmi:type="uml:Model" href="model2.uml#_xdhWcMn4EeWpOt4S-MdBow"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_2JkUk8zGEeWXqMHbq8Wz0Q"/>
+    <element xsi:nil="true"/>
     <edges xmi:type="notation:Connector" xmi:id="_fRRRsMzHEeWXqMHbq8Wz0Q" type="4011" source="_CwFwMMzHEeWXqMHbq8Wz0Q" target="_Rx6JkMzHEeWXqMHbq8Wz0Q">
       <children xmi:type="notation:DecorationNode" xmi:id="_fRR4wMzHEeWXqMHbq8Wz0Q" type="6008">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_fRR4wczHEeWXqMHbq8Wz0Q" y="40"/>
