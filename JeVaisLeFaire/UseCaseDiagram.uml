@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_rL0dgMzaEeWHF4hIz1X5Mw" name="Battleship">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_CpP70MzcEeWHF4hIz1X5Mw">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://Papyrus_JAVA_PROFILES/java.profile.uml#_6TYLMN0yEd6P1qtlpBOZyg"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_xGP0kMzaEeWHF4hIz1X5Mw" name="Joueur"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_znlv8MzaEeWHF4hIz1X5Mw" name="Menu">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_0XuzcMzaEeWHF4hIz1X5Mw" name="Choisir mode"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_2Q8-4MzaEeWHF4hIz1X5Mw" name="Choisir bataille"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_B4JrgMzbEeWHF4hIz1X5Mw" name="S'authentifier"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_C8UeQMzbEeWHF4hIz1X5Mw" name="Poser bateaux">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_U7bIIMzbEeWHF4hIz1X5Mw" name="ExtensionPoint1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_MKjvcMzbEeWHF4hIz1X5Mw" name="Jouer bataille">
+    <include xmi:type="uml:Include" xmi:id="_b2KFoMzbEeWHF4hIz1X5Mw" addition="_B4JrgMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_PqQJcMzbEeWHF4hIz1X5Mw" name="Choisir nombre bateaux">
+    <extend xmi:type="uml:Extend" xmi:id="_U7Z6AMzbEeWHF4hIz1X5Mw" extendedCase="_C8UeQMzbEeWHF4hIz1X5Mw" extensionLocation="_U7bIIMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_WMiKsMzbEeWHF4hIz1X5Mw" memberEnd="_WMlOAMzbEeWHF4hIz1X5Mw _WMl1EMzbEeWHF4hIz1X5Mw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WMj_4MzbEeWHF4hIz1X5Mw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WMj_4czbEeWHF4hIz1X5Mw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_WMlOAMzbEeWHF4hIz1X5Mw" name="jouer bataille" type="_MKjvcMzbEeWHF4hIz1X5Mw" association="_WMiKsMzbEeWHF4hIz1X5Mw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_WMl1EMzbEeWHF4hIz1X5Mw" name="joueur" type="_xGP0kMzaEeWHF4hIz1X5Mw" association="_WMiKsMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_XDeZwMzbEeWHF4hIz1X5Mw" visibility="package" memberEnd="_XDfA0szbEeWHF4hIz1X5Mw _XDfA08zbEeWHF4hIz1X5Mw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XDfA0MzbEeWHF4hIz1X5Mw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XDfA0czbEeWHF4hIz1X5Mw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_XDfA0szbEeWHF4hIz1X5Mw" name="poser bateaux" type="_C8UeQMzbEeWHF4hIz1X5Mw" association="_XDeZwMzbEeWHF4hIz1X5Mw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_XDfA08zbEeWHF4hIz1X5Mw" name="joueur" type="_xGP0kMzaEeWHF4hIz1X5Mw" association="_XDeZwMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_YnXOYMzbEeWHF4hIz1X5Mw" memberEnd="_YnX1cMzbEeWHF4hIz1X5Mw _YnX1cczbEeWHF4hIz1X5Mw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YnXOYczbEeWHF4hIz1X5Mw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YnXOYszbEeWHF4hIz1X5Mw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_YnX1cMzbEeWHF4hIz1X5Mw" name="choisir nombre bateaux" type="_PqQJcMzbEeWHF4hIz1X5Mw" association="_YnXOYMzbEeWHF4hIz1X5Mw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_YnX1cczbEeWHF4hIz1X5Mw" name="joueur" type="_xGP0kMzaEeWHF4hIz1X5Mw" association="_YnXOYMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_aMsNcMzbEeWHF4hIz1X5Mw" memberEnd="_aMtbkMzbEeWHF4hIz1X5Mw _aMtbkczbEeWHF4hIz1X5Mw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aMs0gMzbEeWHF4hIz1X5Mw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aMs0gczbEeWHF4hIz1X5Mw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aMtbkMzbEeWHF4hIz1X5Mw" name="s'authentifier" type="_B4JrgMzbEeWHF4hIz1X5Mw" association="_aMsNcMzbEeWHF4hIz1X5Mw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aMtbkczbEeWHF4hIz1X5Mw" name="joueur" type="_xGP0kMzaEeWHF4hIz1X5Mw" association="_aMsNcMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dPcMwMzbEeWHF4hIz1X5Mw" memberEnd="_dPcz0szbEeWHF4hIz1X5Mw _dPda4MzbEeWHF4hIz1X5Mw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dPcz0MzbEeWHF4hIz1X5Mw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dPcz0czbEeWHF4hIz1X5Mw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dPcz0szbEeWHF4hIz1X5Mw" name="choisir mode" type="_0XuzcMzaEeWHF4hIz1X5Mw" association="_dPcMwMzbEeWHF4hIz1X5Mw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dPda4MzbEeWHF4hIz1X5Mw" name="joueur" type="_xGP0kMzaEeWHF4hIz1X5Mw" association="_dPcMwMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_d_VYoMzbEeWHF4hIz1X5Mw" memberEnd="_d_WmwMzbEeWHF4hIz1X5Mw _d_WmwczbEeWHF4hIz1X5Mw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_d_V_sMzbEeWHF4hIz1X5Mw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d_V_sczbEeWHF4hIz1X5Mw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_d_WmwMzbEeWHF4hIz1X5Mw" name="choisir bataille" type="_2Q8-4MzaEeWHF4hIz1X5Mw" association="_d_VYoMzbEeWHF4hIz1X5Mw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_d_WmwczbEeWHF4hIz1X5Mw" name="joueur" type="_xGP0kMzaEeWHF4hIz1X5Mw" association="_d_VYoMzbEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+</uml:Model>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_3wszAMzdEeWHF4hIz1X5Mw" name="Authentification">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_3w8qoMzdEeWHF4hIz1X5Mw" name="Authentification" node="_zLSmwMzgEeWHF4hIz1X5Mw _AK-JQMzhEeWHF4hIz1X5Mw _DBrQoMzhEeWHF4hIz1X5Mw _Qm2F0MzhEeWHF4hIz1X5Mw _W9VGwMzhEeWHF4hIz1X5Mw" group="_t-smEMzgEeWHF4hIz1X5Mw _ww8rQMzgEeWHF4hIz1X5Mw">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_iwGxQMzhEeWHF4hIz1X5Mw" target="_AK-JQMzhEeWHF4hIz1X5Mw" source="_zLSmwMzgEeWHF4hIz1X5Mw"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_rXtgQMzhEeWHF4hIz1X5Mw" target="_DBrQoMzhEeWHF4hIz1X5Mw" source="_AK-JQMzhEeWHF4hIz1X5Mw"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_sBQMgMzhEeWHF4hIz1X5Mw" target="_Qm2F0MzhEeWHF4hIz1X5Mw" source="_DBrQoMzhEeWHF4hIz1X5Mw"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_s31PMMzhEeWHF4hIz1X5Mw" name="[else]" target="_W9VGwMzhEeWHF4hIz1X5Mw" source="_Qm2F0MzhEeWHF4hIz1X5Mw"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_v5OjoMzhEeWHF4hIz1X5Mw" name="[invalide]" target="_AK-JQMzhEeWHF4hIz1X5Mw" source="_Qm2F0MzhEeWHF4hIz1X5Mw"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_t-smEMzgEeWHF4hIz1X5Mw" name="Joueur" node="_zLSmwMzgEeWHF4hIz1X5Mw _AK-JQMzhEeWHF4hIz1X5Mw"/>
+    <group xmi:type="uml:ActivityPartition" xmi:id="_ww8rQMzgEeWHF4hIz1X5Mw" name="Système" node="_DBrQoMzhEeWHF4hIz1X5Mw _Qm2F0MzhEeWHF4hIz1X5Mw _W9VGwMzhEeWHF4hIz1X5Mw"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_zLSmwMzgEeWHF4hIz1X5Mw" name="" outgoing="_iwGxQMzhEeWHF4hIz1X5Mw" inPartition="_t-smEMzgEeWHF4hIz1X5Mw"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_AK-JQMzhEeWHF4hIz1X5Mw" name="Saisir nom" incoming="_iwGxQMzhEeWHF4hIz1X5Mw _v5OjoMzhEeWHF4hIz1X5Mw" outgoing="_rXtgQMzhEeWHF4hIz1X5Mw" inPartition="_t-smEMzgEeWHF4hIz1X5Mw"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_DBrQoMzhEeWHF4hIz1X5Mw" name="Vérifier nom" incoming="_rXtgQMzhEeWHF4hIz1X5Mw" outgoing="_sBQMgMzhEeWHF4hIz1X5Mw" inPartition="_ww8rQMzgEeWHF4hIz1X5Mw"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_Qm2F0MzhEeWHF4hIz1X5Mw" name="" incoming="_sBQMgMzhEeWHF4hIz1X5Mw" outgoing="_s31PMMzhEeWHF4hIz1X5Mw _v5OjoMzhEeWHF4hIz1X5Mw" inPartition="_ww8rQMzgEeWHF4hIz1X5Mw"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_W9VGwMzhEeWHF4hIz1X5Mw" name="" incoming="_s31PMMzhEeWHF4hIz1X5Mw" inPartition="_ww8rQMzgEeWHF4hIz1X5Mw"/>
+  </packagedElement>
+</uml:Model>
