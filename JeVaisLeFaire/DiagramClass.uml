@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_3izcUM_PEeWUZdt_dGrc5g" name="BatailleNavale">
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8wkcM_QEeWUZdt_dGrc5g" name="Zodiac">
+    <generalization xmi:type="uml:Generalization" xmi:id="_F8wkcc_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_F8wkcs_QEeWUZdt_dGrc5g" memberEnd="_F8wkeM_QEeWUZdt_dGrc5g _F8wkdc_QEeWUZdt_dGrc5g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8wkc8_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8wkdM_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8wkdc_QEeWUZdt_dGrc5g" name="grille" type="_F8xyk8_QEeWUZdt_dGrc5g" aggregation="composite" association="_F8wkcs_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F8wkds_QEeWUZdt_dGrc5g" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F8wkd8_QEeWUZdt_dGrc5g" value="2"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8wkeM_QEeWUZdt_dGrc5g" name="plateau" type="_F8xLiM_QEeWUZdt_dGrc5g" association="_F8wkcs_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xLgM_QEeWUZdt_dGrc5g" name="Bateau" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_F8xLgc_QEeWUZdt_dGrc5g" memberEnd="_F8xLh8_QEeWUZdt_dGrc5g _F8xLhM_QEeWUZdt_dGrc5g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8xLgs_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8xLg8_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xLhM_QEeWUZdt_dGrc5g" name="bateau" type="_F8xLgM_QEeWUZdt_dGrc5g" association="_F8xLgc_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F8xLhc_QEeWUZdt_dGrc5g" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F8xLhs_QEeWUZdt_dGrc5g" value="5"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xLh8_QEeWUZdt_dGrc5g" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8xLgc_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xLiM_QEeWUZdt_dGrc5g" name="Plateau"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xykM_QEeWUZdt_dGrc5g" name="Joueur">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_F8xykc_QEeWUZdt_dGrc5g" name="plateau" type="_F8xLiM_QEeWUZdt_dGrc5g" association="_F8zAtc_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xyks_QEeWUZdt_dGrc5g" name="Case">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_hI8B4M_QEeWUZdt_dGrc5g" name="x"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_yVEWsM_QEeWUZdt_dGrc5g" name="x" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xyk8_QEeWUZdt_dGrc5g" name="Grille"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xylM_QEeWUZdt_dGrc5g" name="PorteAvion">
+    <generalization xmi:type="uml:Generalization" xmi:id="_F8xylc_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_F8xyls_QEeWUZdt_dGrc5g" memberEnd="_F8xynM_QEeWUZdt_dGrc5g _F8xymc_QEeWUZdt_dGrc5g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8xyl8_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8xymM_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xymc_QEeWUZdt_dGrc5g" name="case" type="_F8xyks_QEeWUZdt_dGrc5g" aggregation="composite" association="_F8xyls_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F8xyms_QEeWUZdt_dGrc5g" value="100"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F8xym8_QEeWUZdt_dGrc5g" value="100"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xynM_QEeWUZdt_dGrc5g" name="grille" type="_F8xyk8_QEeWUZdt_dGrc5g" association="_F8xyls_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8yZoM_QEeWUZdt_dGrc5g" name="Cruiser">
+    <generalization xmi:type="uml:Generalization" xmi:id="_F8yZoc_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8yZos_QEeWUZdt_dGrc5g" name="IA">
+    <generalization xmi:type="uml:Generalization" xmi:id="_F8yZo8_QEeWUZdt_dGrc5g" general="_F8xykM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8yZpM_QEeWUZdt_dGrc5g" name="Humain">
+    <generalization xmi:type="uml:Generalization" xmi:id="_F8yZpc_QEeWUZdt_dGrc5g" general="_F8xykM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_F8zAsM_QEeWUZdt_dGrc5g" name="Affronte" memberEnd="_F8zAtM_QEeWUZdt_dGrc5g _F8zAs8_QEeWUZdt_dGrc5g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8zAsc_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8zAss_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAs8_QEeWUZdt_dGrc5g" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8zAsM_QEeWUZdt_dGrc5g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAtM_QEeWUZdt_dGrc5g" name="joueur" association="_F8zAsM_QEeWUZdt_dGrc5g">
+      <type xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_F8zAtc_QEeWUZdt_dGrc5g" memberEnd="_F8zAuM_QEeWUZdt_dGrc5g _F8xykc_QEeWUZdt_dGrc5g">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8zAts_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8zAt8_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAuM_QEeWUZdt_dGrc5g" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8zAtc_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8zAuc_QEeWUZdt_dGrc5g" name="SousMarin">
+    <generalization xmi:type="uml:Generalization" xmi:id="_F8zAus_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+</uml:Model>
