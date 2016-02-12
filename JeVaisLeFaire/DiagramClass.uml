@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_3izcUM_PEeWUZdt_dGrc5g" name="BatailleNavale">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_V_M24M_cEeWjCos1yUbStA">
+    <importedPackage xmi:type="uml:Profile" href="pathmap://Papyrus_JAVA_PROFILES/java.profile.uml#_6TYLMN0yEd6P1qtlpBOZyg"/>
+  </packageImport>
   <packagedElement xmi:type="uml:Class" xmi:id="_F8wkcM_QEeWUZdt_dGrc5g" name="Zodiac">
     <generalization xmi:type="uml:Generalization" xmi:id="_F8wkcc_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_F8wkcs_QEeWUZdt_dGrc5g" memberEnd="_F8wkeM_QEeWUZdt_dGrc5g _F8wkdc_QEeWUZdt_dGrc5g">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8wkc8_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8wkdM_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_F8wkdc_QEeWUZdt_dGrc5g" name="grille" type="_F8xyk8_QEeWUZdt_dGrc5g" aggregation="composite" association="_F8wkcs_QEeWUZdt_dGrc5g">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F8wkds_QEeWUZdt_dGrc5g" value="2"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F8wkd8_QEeWUZdt_dGrc5g" value="2"/>
-    </ownedEnd>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_F8wkeM_QEeWUZdt_dGrc5g" name="plateau" type="_F8xLiM_QEeWUZdt_dGrc5g" association="_F8wkcs_QEeWUZdt_dGrc5g"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xLgM_QEeWUZdt_dGrc5g" name="Bateau" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qfYIoM_XEeWjCos1yUbStA" name="compartiments" visibility="protected" type="_F8xyks_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ttlwEM_iEeWjCos1yUbStA" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ttwIIM_iEeWjCos1yUbStA" value="5"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_HKr1gM_jEeWjCos1yUbStA" name="setCompartiments"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_TYjgkM_jEeWjCos1yUbStA" name="iscoule"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_F8xLgM_QEeWUZdt_dGrc5g" name="Bateau" isAbstract="true"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_F8xLgc_QEeWUZdt_dGrc5g" memberEnd="_F8xLh8_QEeWUZdt_dGrc5g _F8xLhM_QEeWUZdt_dGrc5g">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8xLgs_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8xLg8_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
@@ -24,29 +24,68 @@
     </ownedEnd>
     <ownedEnd xmi:type="uml:Property" xmi:id="_F8xLh8_QEeWUZdt_dGrc5g" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8xLgc_QEeWUZdt_dGrc5g"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_F8xLiM_QEeWUZdt_dGrc5g" name="Plateau"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_F8xykM_QEeWUZdt_dGrc5g" name="Joueur">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_F8xykc_QEeWUZdt_dGrc5g" name="plateau" type="_F8xLiM_QEeWUZdt_dGrc5g" association="_F8zAtc_QEeWUZdt_dGrc5g"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xLiM_QEeWUZdt_dGrc5g" name="Plateau">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Jf-k0M_WEeWjCos1yUbStA" name="grillej1" visibility="private" type="_F8xyks_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__ttSIM_YEeWjCos1yUbStA" value="100"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__t3DIM_YEeWjCos1yUbStA" value="100"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_gsXy8M_WEeWjCos1yUbStA" name="grillej2" visibility="private" type="_F8xyks_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BdHaQM_ZEeWjCos1yUbStA" value="100"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BdRLQM_ZEeWjCos1yUbStA" value="100"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_F8xykM_QEeWUZdt_dGrc5g" name="Joueur" visibility="package">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_6CDo0M_WEeWjCos1yUbStA" name="nom" visibility="protected">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_bLGtUM_XEeWjCos1yUbStA" name="flotte" visibility="protected" type="_F8xLgM_QEeWUZdt_dGrc5g">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XmeTgM_YEeWjCos1yUbStA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XmpSoM_YEeWjCos1yUbStA" value="5"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_u6-3oM_fEeWjCos1yUbStA" name="tir">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_e6tcgM_gEeWjCos1yUbStA" name="x">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_qBIXUM_gEeWjCos1yUbStA" name="y">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ThYXUM_hEeWjCos1yUbStA" name="tir" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_pwihIM_hEeWjCos1yUbStA" name="poseBateau">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xJnngM_hEeWjCos1yUbStA" name="poseBateau" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4tNUwM_hEeWjCos1yUbStA" name="x">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6M9QQM_hEeWjCos1yUbStA" name="y">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Eq09UM_iEeWjCos1yUbStA" name="direction">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_F8xyks_QEeWUZdt_dGrc5g" name="Case">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_hI8B4M_QEeWUZdt_dGrc5g" name="x"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_yVEWsM_QEeWUZdt_dGrc5g" name="x" visibility="private">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_PzKPkM_VEeWjCos1yUbStA" name="y" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_hESZIM_VEeWjCos1yUbStA" name="visite" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_EFCL0M_mEeWjCos1yUbStA" name="isOcuppe" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_F8xyk8_QEeWUZdt_dGrc5g" name="Grille"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_F8xylM_QEeWUZdt_dGrc5g" name="PorteAvion">
     <generalization xmi:type="uml:Generalization" xmi:id="_F8xylc_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_F8xyls_QEeWUZdt_dGrc5g" memberEnd="_F8xynM_QEeWUZdt_dGrc5g _F8xymc_QEeWUZdt_dGrc5g">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8xyl8_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8xymM_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xymc_QEeWUZdt_dGrc5g" name="case" type="_F8xyks_QEeWUZdt_dGrc5g" aggregation="composite" association="_F8xyls_QEeWUZdt_dGrc5g">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F8xyms_QEeWUZdt_dGrc5g" value="100"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F8xym8_QEeWUZdt_dGrc5g" value="100"/>
-    </ownedEnd>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xynM_QEeWUZdt_dGrc5g" name="grille" type="_F8xyk8_QEeWUZdt_dGrc5g" association="_F8xyls_QEeWUZdt_dGrc5g"/>
+    <ownedAttribute xmi:type="uml:ExtensionEnd" xmi:id="_IkOcUM_YEeWjCos1yUbStA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_F8yZoM_QEeWUZdt_dGrc5g" name="Cruiser">
     <generalization xmi:type="uml:Generalization" xmi:id="_F8yZoc_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
@@ -61,8 +100,8 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_F8zAsc_QEeWUZdt_dGrc5g" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8zAss_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAs8_QEeWUZdt_dGrc5g" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8zAsM_QEeWUZdt_dGrc5g"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAtM_QEeWUZdt_dGrc5g" name="joueur" association="_F8zAsM_QEeWUZdt_dGrc5g">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAs8_QEeWUZdt_dGrc5g" name="joueur2" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8zAsM_QEeWUZdt_dGrc5g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAtM_QEeWUZdt_dGrc5g" name="joueur1" association="_F8zAsM_QEeWUZdt_dGrc5g">
       <type xmi:type="uml:Activity" href="model2.uml#_xotSwMn4EeWpOt4S-MdBow"/>
     </ownedEnd>
   </packagedElement>
@@ -71,8 +110,67 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_F8zAt8_QEeWUZdt_dGrc5g" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_F8zAuM_QEeWUZdt_dGrc5g" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_F8zAtc_QEeWUZdt_dGrc5g"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_F8xykc_QEeWUZdt_dGrc5g" name="plateau" type="_F8xLiM_QEeWUZdt_dGrc5g" association="_F8zAtc_QEeWUZdt_dGrc5g"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_F8zAuc_QEeWUZdt_dGrc5g" name="SousMarin">
     <generalization xmi:type="uml:Generalization" xmi:id="_F8zAus_QEeWUZdt_dGrc5g" general="_F8xLgM_QEeWUZdt_dGrc5g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_01EUoM_YEeWjCos1yUbStA" memberEnd="_01E7sc_YEeWjCos1yUbStA _01E7ss_YEeWjCos1yUbStA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_01EUoc_YEeWjCos1yUbStA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_01E7sM_YEeWjCos1yUbStA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_01E7ss_YEeWjCos1yUbStA" name="case" type="_F8xyks_QEeWUZdt_dGrc5g" aggregation="shared" association="_01EUoM_YEeWjCos1yUbStA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6IpHEM_YEeWjCos1yUbStA" value="200"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6IzfIM_YEeWjCos1yUbStA" value="200"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_01E7sc_YEeWjCos1yUbStA" name="plateau" type="_F8xLiM_QEeWUZdt_dGrc5g" association="_01EUoM_YEeWjCos1yUbStA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_u12uwM_ZEeWjCos1yUbStA" name="Partie">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_5IQLoM_ZEeWjCos1yUbStA" name="mode" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_XYvuoM_aEeWjCos1yUbStA" name="bataille" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_vpuw0M_bEeWjCos1yUbStA" name="nomValide">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_IKqwAM_cEeWjCos1yUbStA" name="nom">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_t_oUkM_dEeWjCos1yUbStA" name="nbBateaux">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_HG-McM_eEeWjCos1yUbStA" name="bateaux"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zMjpQM_ZEeWjCos1yUbStA" memberEnd="_zMkQUM_ZEeWjCos1yUbStA _zMkQUc_ZEeWjCos1yUbStA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zMjpQc_ZEeWjCos1yUbStA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zMjpQs_ZEeWjCos1yUbStA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zMkQUc_ZEeWjCos1yUbStA" name="joueur" type="_F8xykM_QEeWUZdt_dGrc5g" association="_zMjpQM_ZEeWjCos1yUbStA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3-26oM_ZEeWjCos1yUbStA" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3_BSsM_ZEeWjCos1yUbStA" value="2"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zMkQUM_ZEeWjCos1yUbStA" name="jeu" type="_u12uwM_ZEeWjCos1yUbStA" association="_zMjpQM_ZEeWjCos1yUbStA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zF1nIM_iEeWjCos1yUbStA" memberEnd="_zF2OMc_iEeWjCos1yUbStA _zF3cUM_iEeWjCos1yUbStA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zF1nIc_iEeWjCos1yUbStA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zF2OMM_iEeWjCos1yUbStA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zF3cUM_iEeWjCos1yUbStA" name="case" type="_F8xyks_QEeWUZdt_dGrc5g" association="_zF1nIM_iEeWjCos1yUbStA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2tPysM_iEeWjCos1yUbStA" value="2"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2taKwM_iEeWjCos1yUbStA" value="5"/>
+    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zF2OMc_iEeWjCos1yUbStA" name="bateau" type="_F8xLgM_QEeWUZdt_dGrc5g" association="_zF1nIM_iEeWjCos1yUbStA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_7vxUwNALEeW9SO1_RBB0vw" name="PoserBateaux Seq">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_OtdRUNANEeW9SO1_RBB0vw" name="" type="_F8xykM_QEeWUZdt_dGrc5g"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_XKZocNANEeW9SO1_RBB0vw" name="" type="_F8xLgM_QEeWUZdt_dGrc5g"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_YjVxUNANEeW9SO1_RBB0vw" name="" type="_F8xLiM_QEeWUZdt_dGrc5g"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_apzukNANEeW9SO1_RBB0vw" name="" type="_F8xyks_QEeWUZdt_dGrc5g"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_3AFyMNAOEeW9SO1_RBB0vw" name="" type="_u12uwM_ZEeWjCos1yUbStA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_OtcDMNANEeW9SO1_RBB0vw" name="" represents="_OtdRUNANEeW9SO1_RBB0vw"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_XKZBYNANEeW9SO1_RBB0vw" name="" represents="_XKZocNANEeW9SO1_RBB0vw"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_YjVKQNANEeW9SO1_RBB0vw" name="" represents="_YjVxUNANEeW9SO1_RBB0vw"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_apzHgNANEeW9SO1_RBB0vw" name="" represents="_apzukNANEeW9SO1_RBB0vw"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_3AFLINAOEeW9SO1_RBB0vw" name="" represents="_3AFyMNAOEeW9SO1_RBB0vw"/>
   </packagedElement>
 </uml:Model>

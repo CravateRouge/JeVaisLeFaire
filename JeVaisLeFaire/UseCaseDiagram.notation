@@ -30,7 +30,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0X8O1czaEeWHF4hIz1X5Mw"/>
         </children>
         <element xmi:type="uml:UseCase" href="UseCaseDiagram.uml#_0XuzcMzaEeWHF4hIz1X5Mw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0X7nwczaEeWHF4hIz1X5Mw" x="26"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0X7nwczaEeWHF4hIz1X5Mw" x="3" y="8"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_2RLBUMzaEeWHF4hIz1X5Mw" type="3012">
         <children xmi:type="notation:DecorationNode" xmi:id="_2RLBUszaEeWHF4hIz1X5Mw" type="5022"/>
