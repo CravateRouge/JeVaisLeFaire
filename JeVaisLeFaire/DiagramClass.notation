@@ -585,11 +585,19 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_OufzIdANEeW9SO1_RBB0vw"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OufzItANEeW9SO1_RBB0vw"/>
           </children>
+          <children xmi:type="notation:Shape" xmi:id="_gEaJINJJEeW767pv8KIyWQ" type="3006">
+            <element xmi:type="uml:ActionExecutionSpecification" href="DiagramClass.uml#_gEDj0NJJEeW767pv8KIyWQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gEaJIdJJEeW767pv8KIyWQ" x="42" y="30" height="185"/>
+          </children>
           <element xmi:type="uml:Lifeline" href="DiagramClass.uml#_OtcDMNANEeW9SO1_RBB0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot9AkdANEeW9SO1_RBB0vw" x="148" y="10" width="100" height="697"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ot9AkdANEeW9SO1_RBB0vw" x="121" y="10" width="100" height="697"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_XKa2kNANEeW9SO1_RBB0vw" type="3001">
           <children xmi:type="notation:DecorationNode" xmi:id="_XKa2ktANEeW9SO1_RBB0vw" type="5002"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_Vy3n4NJJEeW767pv8KIyWQ" type="compartment_shape_display">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_Vy3n4dJJEeW767pv8KIyWQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Vy3n4tJJEeW767pv8KIyWQ"/>
+          </children>
           <element xmi:type="uml:Lifeline" href="DiagramClass.uml#_XKZBYNANEeW9SO1_RBB0vw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XKa2kdANEeW9SO1_RBB0vw" x="304" y="8" width="100" height="699"/>
         </children>
@@ -602,15 +610,6 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_ap08stANEeW9SO1_RBB0vw" type="5002"/>
           <element xmi:type="uml:Lifeline" href="DiagramClass.uml#_apzHgNANEeW9SO1_RBB0vw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ap08sdANEeW9SO1_RBB0vw" x="674" y="8" width="100" height="699"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_3AHAUNAOEeW9SO1_RBB0vw" type="3001">
-          <children xmi:type="notation:DecorationNode" xmi:id="_3AHnYNAOEeW9SO1_RBB0vw" type="5002"/>
-          <children xmi:type="notation:BasicCompartment" xmi:id="_3AMf4NAOEeW9SO1_RBB0vw" type="compartment_shape_display">
-            <styles xmi:type="notation:TitleStyle" xmi:id="_3AMf4dAOEeW9SO1_RBB0vw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3AMf4tAOEeW9SO1_RBB0vw"/>
-          </children>
-          <element xmi:type="uml:Lifeline" href="DiagramClass.uml#_3AFLINAOEeW9SO1_RBB0vw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3AHAUdAOEeW9SO1_RBB0vw" y="8" width="100" height="699"/>
         </children>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DiecFNAMEeW9SO1_RBB0vw"/>
       </children>
