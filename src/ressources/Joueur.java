@@ -18,6 +18,7 @@ public abstract class Joueur {
 		this.flotte = new HashMap<Case,String>();
 	}
 	
+	/*@Débattre Constructeur inutile?*/
 	public Joueur(Joueur j){
 		this.nom = j.getNom();
 		this.flotte = j.getFlotte();
@@ -26,6 +27,8 @@ public abstract class Joueur {
 	public String getNom(){
 		return this.nom;
 	}
+	
+	/*@Débattre Getter inutile?*/
 	public Map<Case,String> getFlotte(){
 		return this.flotte;
 	}
@@ -37,8 +40,8 @@ public abstract class Joueur {
 	 * @param bateau
 	 * Le nom du bateau
 	 */
-	public void poseBateau(Case c, String bateau){
-		flotte.put(c, bateau);
+	public boolean poseBateau(Case c, String bateau){
+		return flotte.put(c, bateau) == null;
 	}
 
 	/**
@@ -48,8 +51,8 @@ public abstract class Joueur {
 	 * @return
 	 * True si le bateau est touche ou false s'il est coule
 	 */
-	public boolean degat(Case c) {
-		return flotte.containsValue(flotte.remove(c));
+	public EtatFlotte degat(Case c) {
+		return flotte.containsValue(flotte.remove(c))? EtatFlotte.TOUCHE : flotte.isEmpty()? EtatFlotte.COULE : EtatFlotte.BCOULE;
 	}
 
 }

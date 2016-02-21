@@ -12,6 +12,8 @@ public class Case {
 		this.x = x;
 		this.y = y;
 	}
+	
+	/*@Débattre Constructeur inutile*/
 	/** Constructeur par copie */
 	public Case(Case c){
 		this.x = c.getX();
