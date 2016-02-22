@@ -1,4 +1,4 @@
-package ressources;
+package modele;
 
 public enum EtatFlotte {
 SAUVE,//pas touchée par le tir

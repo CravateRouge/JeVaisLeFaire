@@ -1,4 +1,4 @@
-package ressources;
+package modele;
 
 public class Case {
 
