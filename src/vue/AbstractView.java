@@ -1,8 +1,9 @@
 package vue;
 
 import controleur.AbstractController;
+import listener.VisiteeListener;
 
-public abstract class AbstractView implements Listener {
+public abstract class AbstractView implements VisiteeListener {
 	private AbstractController controller=null;
 
 	public AbstractView(AbstractController controller){

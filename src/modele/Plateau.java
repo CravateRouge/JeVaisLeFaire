@@ -106,10 +106,10 @@ public class Plateau {
 		 * le laisse t-on rejouer ou pas?
 		 */
 		this.setTurn();
-		if(grille[x][y].isVisite())
+		if(grille[x][y].isVisitee())
 			return EtatFlotte.DVISITEE;//la case a deja ete visitee
 
-		grille[x][y].setVisite();
+		grille[x][y].setVisitee();
 		if(grille[x][y].isOccupee())
 			return j.degat(grille[x][y]);
 
