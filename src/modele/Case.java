@@ -1,10 +1,5 @@
 package modele;
 
-import listener.OccupeeChangedEvent;
-import listener.OccupeeListener;
-import listener.VisiteeChangedEvent;
-import listener.VisiteeListener;
-
 public class Case extends AbstractModel {
 
 	private int x;
@@ -48,36 +43,5 @@ public class Case extends AbstractModel {
 	public void setVisitee(){
 		this.visitee = !visitee;
 	}
-	
-	public void addVisiteeListener(VisiteeListener l){
-		listeners.add(VisiteeListener.class, l);
-	}
-	
-	public void removeVisiteeListener(VisiteeListener l){
-		listeners.remove(VisiteeListener.class, l);
-	}
-	
-	public void fireVisiteeChanged(Object obj){
-		VisiteeListener[] listenersList= listeners.getListeners(VisiteeListener.class);
-		
-		for(VisiteeListener visiteeListener : listenersList){
-			visiteeListener.visiteeChanged(new VisiteeChangedEvent(getClass(), isVisitee()));
-		}
-	}
-	
-	public void addOccupeeListener(OccupeeListener l){
-		listeners.add(OccupeeListener.class, l);
-	}
-	
-	public void removeOccupeeListener(OccupeeListener l){
-		listeners.remove(OccupeeListener.class, l);
-	}
-	
-	public void fireOccupeeChanged(Object obj){
-		OccupeeListener[] listenersList= listeners.getListeners(OccupeeListener.class);
-		
-		for(OccupeeListener occupeeListener : listenersList){
-			occupeeListener.occupeeChanged(new OccupeeChangedEvent(getClass(), isOccupee()));
-		}
-	}
+
 }
