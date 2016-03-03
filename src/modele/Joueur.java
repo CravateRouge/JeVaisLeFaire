@@ -3,10 +3,13 @@ package modele;
 import java.util.HashMap;
 import java.util.Map;
 
+import enumeration.EtatFlotte;
+import enumeration.TypeBateau;
+
 public abstract class Joueur {
 	
 	private String nom;
-	private Map<Case,String> flotte;
+	private Map<Case,TypeBateau> flotte;
 	
 	/**
 	 * Le joueur va etre cree grace a un nom et sa flotte sera constituer par la suite.
@@ -15,7 +18,7 @@ public abstract class Joueur {
 	 */
 	public Joueur(String n){
 		this.nom = n;
-		this.flotte = new HashMap<Case,String>();
+		this.flotte = new HashMap<Case,TypeBateau>();
 	}
 	
 	/*@Débattre Constructeur inutile?*/
@@ -29,7 +32,7 @@ public abstract class Joueur {
 	}
 	
 	/*@Débattre Getter inutile?*/
-	public Map<Case,String> getFlotte(){
+	public Map<Case,TypeBateau> getFlotte(){
 		return this.flotte;
 	}
 	
@@ -40,7 +43,7 @@ public abstract class Joueur {
 	 * @param bateau
 	 * Le nom du bateau
 	 */
-	public boolean poseBateau(Case c, String bateau){
+	public boolean poseBateau(Case c, TypeBateau bateau){
 		return flotte.put(c, bateau) == null;
 	}
 
