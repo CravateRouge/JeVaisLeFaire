@@ -13,6 +13,7 @@ public class BatailleController {
 		
 		fenetre=new BatailleFenetre(this);
 		model.addModeListener(fenetre);
+		model.addBattleListener(fenetre);
 		displayView();
 	}
 	
@@ -28,4 +29,6 @@ public class BatailleController {
 	public void notifyBattleChoisie(String battle){
 		model.setBattle(battle);
 	}
+	
+
 }

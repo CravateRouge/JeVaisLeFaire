@@ -7,6 +7,7 @@ import javax.swing.AbstractAction;
 import controleur.BatailleController;
 
 public class BattleAction extends AbstractAction {
+	
 	private BatailleController controller;
 	private String name;
 
