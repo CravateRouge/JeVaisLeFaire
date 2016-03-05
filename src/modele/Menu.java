@@ -43,13 +43,17 @@ public class Menu extends AbstractMenu{
 			j1Name=jnom;
 			j1Flotte.addAll(flotte);
 		}
-		else{		
+		else{
+			
 			j2Name=jnom;
 			j2Flotte.addAll(flotte);
 		}
 
-		if(multi1 && j2Flotte.isEmpty())
+		if(multi1){
+		
 			fireFlotteChoisie();
+		}
+			
 		else
 			fireInitGame();		
 	}

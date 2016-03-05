@@ -8,6 +8,7 @@ import controleur.BatailleController;
 import enumeration.TypeBattle;
 
 public class BattleAction extends AbstractAction {
+	
 	private BatailleController controller;
 	private TypeBattle battle;
 

@@ -47,4 +47,5 @@ public class BatailleController {
 		model.setFlotte(jname, flotte);
 		
 	}
+
 }

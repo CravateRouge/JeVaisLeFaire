@@ -93,6 +93,21 @@ public class Plateau {
 
 		return rep;
 	}
+	
+	public EtatFlotte tirIA(){
+			Case test = new Case(((IA) joueur2).tirIA());
+			EtatFlotte retour = tir(test.getX(),test.getY());
+		if( retour == EtatFlotte.COULE || retour == EtatFlotte.SAUVE){
+			((IA) joueur2).resetMem();
+		}
+		else{
+			if(retour == EtatFlotte.TOUCHE && ((IA)joueur2).getMem() == null){
+				
+			}
+		}
+		
+		return retour;
+	}
 
 	/** Tir sur une grille en fonction du tour du joueur
 	 * @param x
