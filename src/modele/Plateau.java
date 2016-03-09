@@ -97,12 +97,17 @@ public class Plateau {
 	public EtatFlotte tirIA(){
 			Case test = new Case(((IA) joueur2).tirIA());
 			EtatFlotte retour = tir(test.getX(),test.getY());
-		if( retour == EtatFlotte.COULE || retour == EtatFlotte.SAUVE){
+		if( retour == EtatFlotte.COULE || (retour == EtatFlotte.SAUVE && ((IA)joueur2).getSens() == 'n') ){
 			((IA) joueur2).resetMem();
+			((IA) joueur2).resetSens();
 		}
 		else{
-			if(retour == EtatFlotte.TOUCHE && ((IA)joueur2).getMem() == null){
-				
+			if(retour == EtatFlotte.TOUCHE && ((IA)joueur2).getDerniere() == null){
+				((IA)joueur2).setDerniere(test);
+			}
+			else if(retour == EtatFlotte.SAUVE && ((IA)joueur2).getSens() != 'n'){
+				((IA)joueur2).changeDirection();
+				((IA)joueur2).retourMem();
 			}
 		}
 		
@@ -114,9 +119,9 @@ public class Plateau {
 	 * 		l'absisce de la case
 	 * @param y
 	 *  	l'ordonnee de la case
-	 *  @return -1 si la case a deja ete visitee,
-	 *   0 si elle n'a rien touchee,
-	 *   1 si touche et 2 si coule
+	 *  @return DVISITEE si la case a deja ete visitee,
+	 *   SAUVE si elle n'a rien touchee,
+	 *   TOUCHE si touche et COULE si coule
 	 */
 	public EtatFlotte tir(int x, int y){
 		Case[][] grille=aQuiLeTourG();

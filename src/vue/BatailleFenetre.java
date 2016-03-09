@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.util.List;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import controleur.BatailleController;
@@ -40,6 +41,7 @@ public class BatailleFenetre extends JFrame implements InitListener{
 	}
 
 	@Override
+
 	public void initGame(TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
 
 		setContentPane(new JeuPanel(controller, new FlowLayout(), battle, j1Name, j2Name, j1Flotte, j2Flotte));
@@ -47,4 +49,5 @@ public class BatailleFenetre extends JFrame implements InitListener{
 		validate();
 		
 	}
+
 }

@@ -14,7 +14,7 @@ import listener.BattleListener;
 import listener.FlotteListener;
 import listener.ModeListener;
 
-public class MenuPanel extends JPanel implements ModeListener,BattleListener, FlotteListener {
+public class MenuPanel extends JPanel implements BattleListener,ModeListener, FlotteListener {
 	
 	private BatailleController controller;
 
