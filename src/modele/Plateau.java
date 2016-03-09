@@ -1,5 +1,8 @@
 package modele;
 
+import enumeration.EtatFlotte;
+import enumeration.TypeBateau;
+
 public class Plateau {
 
 	private Case[][] grille1;
@@ -18,6 +21,7 @@ public class Plateau {
 			for(int j = 0; j<10; j++){
 				this.grille1[i][j] = new Case(i,j);
 				this.grille2[i][j] = new Case(i,j);
+				
 			}
 		}
 	}
@@ -48,23 +52,26 @@ public class Plateau {
 		this.j1turn = !j1turn;
 	}
 
-	public boolean prePoseBateau(Case c, boolean horizontal, String bateau){
+	public boolean prePoseBateau(Case c, boolean horizontal, TypeBateau bateau){
 		int taille;
 		boolean rep=false;
 		Case[][] grille= aQuiLeTourG();
 		Joueur joueur= aQuiLeTourJ();
 
 		switch(bateau){
-		case "PorteAvion":
+		case PORTEAVION:
 			taille = 5;
 			break;
-		case "Cuirasse":
+		case CUIRASSE1 :
 			taille = 4;
 			break;
-		case "SousMarin":
+		case CUIRASSE2 :
+			taille = 4;
+			break;
+		case SOUSMARIN:
 			taille = 3;
 			break;
-		case "Zodiac":
+		case ZODIAC:
 			taille = 2;
 			break;
 		default:
@@ -72,17 +79,14 @@ public class Plateau {
 		}
 
 
-		grille[c.getX()][c.getY()].setOccupee();
-		rep=joueur.poseBateau(grille[c.getX()][c.getY()], bateau);
-
 		if(horizontal)
-			for(int i = 1; i<taille; i++){
+			for(int i = 0; i<taille; i++){
 				grille[c.getX()+i][c.getY()].setOccupee();
 				rep=rep && joueur.poseBateau(grille[c.getX()+i][c.getY()], bateau);
 			}
 
 		else
-			for(int i = 1; i<taille; i++){
+			for(int i = 0; i<taille; i++){
 				grille[c.getX()][c.getY()+i].setOccupee();
 				rep=rep && joueur.poseBateau(grille[c.getX()][c.getY()+i], bateau);
 			}

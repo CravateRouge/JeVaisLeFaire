@@ -1,4 +1,4 @@
-package modele;
+package enumeration;
 
 public enum EtatFlotte {
 SAUVE,//pas touchée par le tir
