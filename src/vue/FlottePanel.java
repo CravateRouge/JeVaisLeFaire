@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.FlowLayout;
+import java.awt.LayoutManager;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.LinkedList;
@@ -23,8 +24,8 @@ public class FlottePanel extends JPanel implements ItemListener {
 	private BatailleController controller;
 	private List<TypeBateau> flotte;
 
-	public FlottePanel(BatailleController controller) {
-		super(new FlowLayout());
+	public FlottePanel(BatailleController controller, LayoutManager layout) {
+		super(layout);
 		this.controller=controller;
 		
 		initPane();

@@ -6,6 +6,6 @@ import enumeration.TypeMode;
 
 public interface ModeListener extends EventListener {
 
-	void modeChoisi(TypeMode mode);
+	void modeChoisi();
 
 }

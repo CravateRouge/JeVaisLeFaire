@@ -26,7 +26,11 @@ public class Menu extends AbstractMenu{
 	
 	public void setMode(TypeMode mode) {
 		this.mode=mode;
-		fireModeChoisi(mode);
+		
+		if(mode==TypeMode.DEMO)
+			fireInitGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);
+		else
+			fireModeChoisi();
 	}
 
 	public void setBattle(TypeBattle battle) {
@@ -36,25 +40,19 @@ public class Menu extends AbstractMenu{
 	}
 	
 	public void setFlotte(String jnom, List<TypeBateau> flotte) {
-		boolean multi1 = mode==TypeMode.MULTI;
-		boolean multi2 = multi1 && !j1Flotte.isEmpty();
 		
-		if(!multi2){
+		if(j1Flotte.isEmpty()){
 			j1Name=jnom;
 			j1Flotte.addAll(flotte);
 		}
-		else{
-			
+		else{		
 			j2Name=jnom;
 			j2Flotte.addAll(flotte);
 		}
 
-		if(multi1){
-		
-			fireFlotteChoisie();
-		}
-			
+		if(mode==TypeMode.MULTI && j2Flotte.isEmpty())		
+			fireFlotteChoisie();			
 		else
-			fireInitGame();		
+			fireInitGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);		
 	}
 }

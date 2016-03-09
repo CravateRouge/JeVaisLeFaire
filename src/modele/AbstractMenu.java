@@ -1,6 +1,9 @@
 package modele;
 
-import enumeration.TypeMode;
+import java.util.List;
+
+import enumeration.TypeBateau;
+import enumeration.TypeBattle;
 import listener.BattleListener;
 import listener.FlotteListener;
 import listener.InitListener;
@@ -33,9 +36,9 @@ public class AbstractMenu extends AbstractModel {
 		listeners.remove(ModeListener.class, listener);
 	}
 
-	protected void fireModeChoisi(TypeMode mode){
+	protected void fireModeChoisi(){
 		for(ModeListener listener : listeners.getListeners(ModeListener.class))
-			listener.modeChoisi(mode);
+			listener.modeChoisi();
 	}
 	
 	public void addInitListener(InitListener listener){
@@ -46,9 +49,9 @@ public class AbstractMenu extends AbstractModel {
 		listeners.remove(InitListener.class, listener);
 	}
 
-	protected void fireInitGame() {
+	protected void fireInitGame(TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
 		for(InitListener listener : listeners.getListeners(InitListener.class))
-			listener.initGame();
+			listener.initGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);
 	}
 	
 	public void addFlotteListener(FlotteListener listener){

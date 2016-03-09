@@ -2,6 +2,8 @@ package vue;
 
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,12 +18,12 @@ public class MenuPanel extends JPanel implements ModeListener,BattleListener, Fl
 	
 	private BatailleController controller;
 
-	public MenuPanel (BatailleController controller){
-		super(new CardLayout());
+	public MenuPanel (BatailleController controller, LayoutManager layout){
+		super(layout);
 		this.controller= controller;
 		add(buildModePane(), "ModePanel");
 		add(buildBattlePane(), "BattlePanel");
-		add(new FlottePanel(controller), "FlottePanel1");
+		add(new FlottePanel(controller, new FlowLayout()), "FlottePanel1");
 	}
 
 	
@@ -64,15 +66,14 @@ public class MenuPanel extends JPanel implements ModeListener,BattleListener, Fl
 	}
 	
 	@Override
-	public void modeChoisi(TypeMode mode) {
-		if(mode!=TypeMode.DEMO)
+	public void modeChoisi() {
 			((CardLayout) getLayout()).next(this);
 
 	}
 
 	@Override
 	public void flotteChoisie() {
-		add(new FlottePanel(controller), "FlottePanel2");
+		add(new FlottePanel(controller, new FlowLayout()), "FlottePanel2");
 		((CardLayout) getLayout()).next(this);
 		
 	}
