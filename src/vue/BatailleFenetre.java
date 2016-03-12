@@ -25,7 +25,7 @@ public class BatailleFenetre extends JFrame implements InitListener{
 
 	private void build() {
 		setTitle("Bataille Navale");
-		setSize(700, 600);
+		setSize(1200, 700);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(menuPanel=new MenuPanel(controller, new CardLayout()));
@@ -44,7 +44,7 @@ public class BatailleFenetre extends JFrame implements InitListener{
 
 	public void initGame(TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
 
-		setContentPane(new JeuPanel(controller, new FlowLayout(), battle, j1Name, j2Name, j1Flotte, j2Flotte));
+		setContentPane(new JeuPanel(controller, battle, j1Name, j2Name, j1Flotte, j2Flotte));
 		invalidate();
 		validate();
 		
