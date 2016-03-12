@@ -47,4 +47,8 @@ public class Case extends AbstractCase {
 		fireCaseVisitee(x,y);
 	}
 
+	public int getDistance(Case proche) {
+		return (int) Math.sqrt(Math.pow(x-proche.getX(), 2) + Math.pow(y-proche.getY(), 2));
+	}
+
 }

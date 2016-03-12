@@ -105,9 +105,39 @@ public class Plateau extends AbstractPlateau{
 		return rep;
 	}
 	
+	public void tir(int x, int y){
+			switch (battle) {
+			case RADAR:
+				if(tireLeCanon(x, y) == EtatFlotte.SAUVE)
+					plusProcheVoisin(new Case(x,y));
+				break;
+
+			case ARTILLERIE:
+				//demander au prof des détails sur le déroulement de ce type de bataille
+				break;
+
+			case ALERTE:
+				//demander au prof des détails sur le déroulement de ce type de bataille
+				break;
+
+			default:
+				break;
+			}
+	}
+	
+	private int plusProcheVoisin(Case origine) {
+		Joueur j=aQuiLeTourJ();
+		Case proche = null;
+		for (Case voisine : j.getFlotte().keySet()) {
+			if(proche == null || (proche != null && origine.getDistance(voisine) < origine.getDistance(proche)))
+				proche = voisine;
+		}
+		
+		return origine.getDistance(proche);		
+	}
 	public EtatFlotte tirIA(){
 			Case test = new Case(((IA) joueur2).tirIA());
-			EtatFlotte retour = tir(test.getX(),test.getY());
+			EtatFlotte retour = tireLeCanon(test.getX(),test.getY());
 		if( retour == EtatFlotte.COULE || (retour == EtatFlotte.SAUVE && ((IA)joueur2).getSens() == 'n') ){
 			((IA) joueur2).resetMem();
 			((IA) joueur2).resetSens();
@@ -134,7 +164,7 @@ public class Plateau extends AbstractPlateau{
 	 *   SAUVE si elle n'a rien touchee,
 	 *   TOUCHE si touche et COULE si coule
 	 */
-	public EtatFlotte tir(int x, int y){
+	public EtatFlotte tireLeCanon(int x, int y){
 		Case[][] grille=aQuiLeTourG();
 		Joueur j=aQuiLeTourJ();
 		/*@Débattre lorsqu'un joueur tire sur une case déjà visitée
