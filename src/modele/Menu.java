@@ -1,6 +1,5 @@
 package modele;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import enumeration.TypeBateau;
@@ -13,25 +12,40 @@ public class Menu extends AbstractMenu{
 	private TypeBattle battle;
 	private String j1Name, j2Name;
 	private List<TypeBateau> j1Flotte, j2Flotte;
+	private Plateau plateau;
 
 	public Menu(){
 		super();
 		
-		this.j1Name="IA1";
-		this.j2Name="IA2";
-		
-		this.j1Flotte=new LinkedList<TypeBateau>();
-		this.j2Flotte=new LinkedList<TypeBateau>();
+		this.j1Name="[Hitman Le Cobra]";
+		this.j2Name="Philippe";
+	
+	}
+	
+	private void initGame() {
+		switch (mode) {
+		case SOLO:
+			plateau=new Plateau(new Humain(j1Name),new IA(j2Name),battle);
+			break;
+		case MULTI:
+			plateau=new Plateau(new Humain(j1Name),new Humain(j2Name),battle);
+			break;
+		default:
+			plateau=new Plateau(new IA(j1Name),new IA(j2Name),battle);
+			break;
+		}	
+		fireInitGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);
 	}
 	
 	public void setMode(TypeMode mode) {
 		this.mode=mode;
 		
 		if(mode==TypeMode.DEMO)
-			fireInitGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);
+			initGame();
 		else
 			fireModeChoisi();
 	}
+
 
 	public void setBattle(TypeBattle battle) {
 		this.battle=battle;
@@ -41,18 +55,23 @@ public class Menu extends AbstractMenu{
 	
 	public void setFlotte(String jnom, List<TypeBateau> flotte) {
 		
-		if(j1Flotte.isEmpty()){
+		if(j1Flotte == null){
 			j1Name=jnom;
-			j1Flotte.addAll(flotte);
+			j1Flotte = flotte;
 		}
 		else{		
 			j2Name=jnom;
-			j2Flotte.addAll(flotte);
+			j2Flotte = flotte;
 		}
 
-		if(mode==TypeMode.MULTI && j2Flotte.isEmpty())		
+		if(mode == TypeMode.MULTI && j2Flotte == null)		
 			fireFlotteChoisie();			
 		else
-			fireInitGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);		
+			initGame();		
+	}
+
+	public Plateau getPlateau() {
+		// TODO Auto-generated method stub
+		return plateau;
 	}
 }

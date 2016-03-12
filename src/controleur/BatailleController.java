@@ -11,6 +11,7 @@ import listener.BattleListener;
 import listener.FlotteListener;
 import listener.InitListener;
 import listener.ModeListener;
+import modele.Case;
 import modele.Menu;
 import vue.BatailleFenetre;
 
@@ -45,7 +46,11 @@ public class BatailleController {
 
 	public void notifyFlotteChoisie(String jname, List<TypeBateau> flotte) {
 		model.setFlotte(jname, flotte);
-		
+	}
+	
+	public void notifyShipPlaced(Case c, boolean horizontal, TypeBateau bateau){
+		if(!model.getPlateau().prePoseBateau(c, horizontal, bateau))
+			System.err.println("Erreur de PoseBateau!!");
 	}
 
 }

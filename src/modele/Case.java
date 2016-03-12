@@ -1,6 +1,6 @@
 package modele;
 
-public class Case extends AbstractModel {
+public class Case extends AbstractCase {
 
 	private int x;
 	private int y;
@@ -10,6 +10,7 @@ public class Case extends AbstractModel {
 	/**Constructeur avec les coordonnees */
 	public Case(int x, int y){
 		super();
+		
 		this.x = x;
 		this.y = y;
 	}
@@ -39,9 +40,11 @@ public class Case extends AbstractModel {
 	
 	public void setOccupee() {
 		this.occupee = !occupee;
+		fireCaseOccupee(x,y);
 	}
 	public void setVisitee(){
 		this.visitee = !visitee;
+		fireCaseVisitee(x,y);
 	}
 
 }
