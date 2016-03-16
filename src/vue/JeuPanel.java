@@ -1,33 +1,30 @@
 package vue;
-
-import java.awt.Color;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import controleur.BatailleController;
 import enumeration.TypeBateau;
 import enumeration.TypeBattle;
-/*
- * Pour console de liste utiliser JScrollPane/JTextArea
- *
- * Pour JeuPanel utiliser BorderLayout
- */
+
 public class JeuPanel extends JPanel {
 
 	private String j1Nom, j2Nom;
 	private TypeBattle battle;
 	private List<TypeBateau> j1Flotte, j2Flotte;
 	private BatailleController controller;
+	private static LayoutManager layout =new BorderLayout();
 
-	public JeuPanel(BatailleController controller, LayoutManager layout, TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
+
+	public JeuPanel(BatailleController controller, TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
 		super(layout);
-		layout.preferredLayoutSize(this);
 		this.controller=controller;
 		this.battle=battle;
 		this.j1Nom=j1Name;
@@ -39,51 +36,31 @@ public class JeuPanel extends JPanel {
 	}
 
 	private void buildJeu() {
-		add(new JLabel(j1Nom));
-		add(buildGridPane());
-		add(buildGridPane());
-		add(new JLabel(j2Nom));
+		//add(new JLabel(j1Nom));
+		
+		add(buildNorth(), BorderLayout.NORTH);
+		add(new GrillePanel(controller),BorderLayout.WEST);
+		add(new GrillePanel(controller), BorderLayout.CENTER);
+		add(buildSouth(), BorderLayout.SOUTH);
 	}
 	
-	private JPanel buildGridPane(){
-		JPanel gridPanel = new JPanel(new GridLayout(11,11));
-		Border blackline = BorderFactory.createLineBorder(Color.black,1);
-		Border blueline = BorderFactory.createLineBorder(Color.blue, 1);
-		for(int o = 0; o<11;o++){
-			for(int a = 0; a<11; a++){
-				if((a == o) && a == 0){
-					JButton ptest0 = new JButton();
-					ptest0.setBackground(new Color(150,150,150));
-					ptest0.setBorder(blackline);
-					gridPanel.add(ptest0);
-				}
-				else if(a == 0){
-					JButton ptest = new JButton(o+"");
-					ptest.setBackground(new Color(100,100,100));
-					ptest.setBorder(blackline);
-					gridPanel.add(ptest);
-				}
-				else if(o == 0){
-					JButton ptest = new JButton((char)(64+a)+"");
-					ptest.setBackground(new Color(100,100,100));
-					ptest.setBorder(blackline);
-					gridPanel.add(ptest);
-				}
-
-				else{
-					JButton ptest2 = new JButton();
-					ptest2.setBackground(new Color(200));
-					ptest2.setBorder(blueline);
-					gridPanel.add(ptest2);
-
-				}
-			}
-		}
-		gridPanel.setBorder(blackline);
-
-		return gridPanel;
+	private JPanel buildNorth(){
+		JPanel north = new JPanel(new GridLayout(1,2));
+		north.add(new JLabel(j1Nom));
+		north.add(new JLabel(j2Nom));
+		return north;
 	}
-	
+	private JPanel buildSouth(){
+		JPanel south = new JPanel();
+		Dimension dscroll = new Dimension(800,85);
+		JTextArea console = new JTextArea(2,5);
+		console.setEditable(false);
+		JScrollPane scroll = new JScrollPane(console);
+		scroll.setPreferredSize(dscroll);
+		scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		south.add(scroll);
+		return south;
+	}
 	
 
 }
