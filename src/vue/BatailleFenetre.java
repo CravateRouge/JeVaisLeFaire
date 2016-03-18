@@ -14,7 +14,7 @@ import listener.InitListener;
 
 public class BatailleFenetre extends JFrame implements InitListener{
 	private BatailleController controller;
-	private JPanel menuPanel;
+	private JPanel menuPanel,jeuPanel;
 
 	public BatailleFenetre(BatailleController controller) {
 		super();
@@ -29,6 +29,7 @@ public class BatailleFenetre extends JFrame implements InitListener{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(menuPanel=new MenuPanel(controller, new CardLayout()));
+		jeuPanel=new JeuPanel(controller);
 
 	}
 
@@ -39,12 +40,15 @@ public class BatailleFenetre extends JFrame implements InitListener{
 	public JPanel getMenuPanel() {
 		return menuPanel;
 	}
+	
+	public JPanel getJeuPanel(){
+		return jeuPanel;
+	}
 
 	@Override
-
-	public void initGame(TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
-
-		setContentPane(new JeuPanel(controller, battle, j1Name, j2Name, j1Flotte, j2Flotte));
+	public void initGame(TypeBattle battle, String j1Nom, String j2Nom, int taille, TypeBateau currentBoat) {
+		((JeuPanel) jeuPanel).buildJeu(j1Nom, j2Nom, taille, currentBoat);
+		setContentPane(jeuPanel);
 		invalidate();
 		validate();
 		

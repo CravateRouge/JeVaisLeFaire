@@ -1,6 +1,8 @@
 package modele;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import enumeration.EtatFlotte;
@@ -10,15 +12,17 @@ public abstract class Joueur {
 	
 	private String nom;
 	private Map<Case,TypeBateau> flotte;
+	private List<TypeBateau> tempFlotte;
 	
 	/**
 	 * Le joueur va etre cree grace a un nom et sa flotte sera constituer par la suite.
 	 * @param n
 	 * Le nom du joueur 
 	 */
-	public Joueur(String n){
+	public Joueur(String n, List<TypeBateau> tempFlotte){
 		this.nom = n;
 		this.flotte = new HashMap<Case,TypeBateau>();
+		this.tempFlotte=new ArrayList<TypeBateau>(tempFlotte);
 	}
 	
 	/*@Débattre Constructeur inutile?*/
@@ -56,6 +60,14 @@ public abstract class Joueur {
 	 */
 	public EtatFlotte degat(Case c) {
 		return flotte.containsValue(flotte.remove(c))? EtatFlotte.TOUCHE : flotte.isEmpty()? EtatFlotte.COULE : EtatFlotte.BCOULE;
+	}
+
+	public TypeBateau getTempFlotte() {
+		return tempFlotte.get(0);
+	}
+
+	public void setTempFlotte() {
+		this.tempFlotte.remove(0);
 	}
 
 }

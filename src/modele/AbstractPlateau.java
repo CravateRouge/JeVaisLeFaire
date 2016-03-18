@@ -1,6 +1,8 @@
 package modele;
 
+import enumeration.TypeBateau;
 import listener.GrilleListener;
+import listener.PoseBateauListener;
 
 public abstract class AbstractPlateau extends AbstractModel {
 
@@ -8,17 +10,17 @@ public abstract class AbstractPlateau extends AbstractModel {
 		super();
 	}
 	
-	public void addGrilleListener(GrilleListener listener){
-		listeners.add(GrilleListener.class, listener);
+	public void addPoseBateauListener(PoseBateauListener listener){
+		listeners.add(PoseBateauListener.class, listener);
 	}
 	
-	public void removeGrilleListener(GrilleListener listener){
-		listeners.remove(GrilleListener.class, listener);
+	public void removePoseBateauListener(PoseBateauListener listener){
+		listeners.remove(PoseBateauListener.class, listener);
 	}
 	
-	protected void fireInitGrilles(int taille){
-		for (GrilleListener listener : listeners.getListeners(GrilleListener.class)) {
-			listener.initGrilles(taille);
+	protected void firePoseBateau(TypeBateau currentBoat){
+		for (PoseBateauListener listener : listeners.getListeners(PoseBateauListener.class)) {
+			listener.poseBateau(currentBoat);
 		}
 	}
 

@@ -1,7 +1,10 @@
 package modele;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import enumeration.TypeBateau;
 
 public class IA extends Joueur {
 	private List<Case> tirs;
@@ -11,7 +14,7 @@ public class IA extends Joueur {
 	private boolean direction;
 
 	public IA(String n) {
-		super(n);
+		super(n, new ArrayList<TypeBateau>(Arrays.asList(TypeBateau.values())));
 		
 		this.tirs = new ArrayList<Case>();
 		this.sens = 'n';

@@ -1,8 +1,11 @@
 package modele;
 
+import java.util.List;
+
 import enumeration.EtatFlotte;
 import enumeration.TypeBateau;
 import enumeration.TypeBattle;
+import enumeration.TypeMode;
 
 public class Plateau extends AbstractPlateau{
 
@@ -14,35 +17,38 @@ public class Plateau extends AbstractPlateau{
 	private TypeBattle battle;
 
 	/** creer le plateau avec 2 IA pour le mode demo
+	 * @param taille 
 	 * @param battle */
-	private Plateau(TypeBattle battle){
+	public Plateau(String j1Name, String j2Name, int taille){
 		super();
+		battle=TypeBattle.CLASSIQUE;
+		joueur1 = new IA(j1Name);
+		joueur2 = new IA(j2Name);
+		initGrilles(taille);
+	}
+
+	public void setGame(TypeMode mode, TypeBattle battle, String j1Name, String j2Name,
+			List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
+		switch (mode) {
+		case SOLO:
+			joueur1 = new Humain(j1Name,j1Flotte);
+			joueur2 = new IA(j2Name);
+			break;
+			
+		case MULTI:
+			joueur1 = new Humain(j1Name, j1Flotte);
+			joueur2 = new Humain(j2Name, j2Flotte);
+			break;
+			
+		default:
+			break;
+		}
 		this.battle=battle;
-		initGrilles();
-	}
-	public Plateau(IA i1, IA i2, TypeBattle battle){
-		this(battle);
-		joueur1 = new IA(i1);
-		joueur2 = new IA(i2);
-	}
-
-	/**creer le plateau avec 1 humain et 1 IA pour le mode 1 joueur*/
-	public Plateau(Humain h, IA i, TypeBattle battle){
-		this(battle);
-		joueur1 = new Humain(h);
-		joueur2 = new IA(i);		
-	}
-
-	/** creer le plateau avec 2 humains pour le mode 2 joueurs*/
-	public Plateau(Humain h1, Humain h2, TypeBattle battle){
-		this(battle);
-		joueur1 = new Humain(h1);
-		joueur2 = new Humain(h2);		
 	}
 	
-	/** Crée 2 grilles 10*10 */
-	private void initGrilles(){
-		int taille = 10;
+	/** Crée 2 grilles 10*10 
+	 * @param taille2 */
+	private void initGrilles(int taille){
 		grille1=new Case[taille][taille];
 		grille2=new Case[taille][taille];
 		
@@ -53,7 +59,6 @@ public class Plateau extends AbstractPlateau{
 			}
 		}
 		
-		fireInitGrilles(taille);
 	}
 
 	/** Passe au tour du joueur suivant */
@@ -62,46 +67,32 @@ public class Plateau extends AbstractPlateau{
 	}
 
 	public boolean prePoseBateau(Case c, boolean horizontal, TypeBateau bateau){
-		int taille;
 		boolean rep=false;
 		Case[][] grille= aQuiLeTourG();
 		Joueur joueur= aQuiLeTourJ();
 		/*Revoir le système de tour par tour (les cliques sur une grille inactive ne doivent
 		pas être pris en compte)*/
 
-		switch(bateau){
-		case PORTEAVION:
-			taille = 5;
-			break;
-		case CUIRASSE1 :
-			taille = 4;
-			break;
-		case CUIRASSE2 :
-			taille = 4;
-			break;
-		case SOUSMARIN:
-			taille = 3;
-			break;
-		case ZODIAC:
-			taille = 2;
-			break;
-		default:
-			taille = 0;
-		}
 
 
 		if(horizontal)
-			for(int i = 0; i<taille; i++){
+			for(int i = 0; i<bateau.getTaille(); i++){
 				grille[c.getX()+i][c.getY()].setOccupee();
 				rep=rep && joueur.poseBateau(grille[c.getX()+i][c.getY()], bateau);
 			}
 
 		else
-			for(int i = 0; i<taille; i++){
+			for(int i = 0; i<bateau.getTaille(); i++){
 				grille[c.getX()][c.getY()+i].setOccupee();
 				rep=rep && joueur.poseBateau(grille[c.getX()][c.getY()+i], bateau);
 			}
 
+		if(rep){
+			joueur.setTempFlotte();
+			bateau=joueur.getTempFlotte();
+		}
+		
+		firePoseBateau(bateau);
 		return rep;
 	}
 	

@@ -1,7 +1,5 @@
 package modele;
 
-import java.util.List;
-
 import enumeration.TypeBateau;
 import enumeration.TypeBattle;
 import listener.BattleListener;
@@ -49,9 +47,9 @@ public class AbstractMenu extends AbstractModel {
 		listeners.remove(InitListener.class, listener);
 	}
 
-	protected void fireInitGame(TypeBattle battle, String j1Name, String j2Name, List<TypeBateau> j1Flotte, List<TypeBateau> j2Flotte) {
+	protected void fireInitGame(TypeBattle battle, String j1Name, String j2Name, int taille, TypeBateau currentBoat) {
 		for(InitListener listener : listeners.getListeners(InitListener.class))
-			listener.initGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);
+			listener.initGame(battle, j1Name, j2Name, taille, currentBoat);
 	}
 	
 	public void addFlotteListener(FlotteListener listener){

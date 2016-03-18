@@ -9,15 +9,18 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import controleur.BatailleController;
+import listener.GrilleListener;
 
 public class GrillePanel extends JPanel {
+private BatailleController controller;
 
-	public GrillePanel(BatailleController controller) {
+	public GrillePanel(BatailleController controller, int taille) {
 		super();
-		add(buildGridPane());
+		this.controller=controller;
+		buildGridPane(++taille);
 	}
 
-	private JPanel buildGridPane(){
+	private JPanel buildGridPane(int taille){
 	JPanel gridPanel = new JPanel(new GridLayout(11,11));
 	Dimension d = new Dimension(50,50);
 	Border blackline = BorderFactory.createLineBorder(Color.black,1);
@@ -25,7 +28,8 @@ public class GrillePanel extends JPanel {
 	for(int o = 0; o<11;o++){
 		for(int a = 0; a<11; a++){
 			if((a == o) && a == 0){
-				JButton ptest0 = new JButton();
+				System.out.println("tata");
+				JButton ptest0 = new JButton(/*new CaseAction(controller,a,o)*/);
 				ptest0.setPreferredSize(d);
 				ptest0.setBackground(new Color(150,150,150));
 				ptest0.setBorder(blackline);

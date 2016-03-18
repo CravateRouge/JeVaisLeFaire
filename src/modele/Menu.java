@@ -11,6 +11,7 @@ public class Menu extends AbstractMenu{
 	private TypeMode mode;
 	private TypeBattle battle;
 	private String j1Name, j2Name;
+	private int taille;
 	private List<TypeBateau> j1Flotte, j2Flotte;
 	private Plateau plateau;
 
@@ -19,27 +20,24 @@ public class Menu extends AbstractMenu{
 		
 		this.j1Name="[Hitman Le Cobra]";
 		this.j2Name="Philippe";
+		taille=10;
+		plateau=new Plateau(j1Name,j2Name,taille);
 	
 	}
 	
 	private void initGame() {
-		switch (mode) {
-		case SOLO:
-			plateau=new Plateau(new Humain(j1Name),new IA(j2Name),battle);
-			break;
-		case MULTI:
-			plateau=new Plateau(new Humain(j1Name),new Humain(j2Name),battle);
-			break;
-		default:
-			plateau=new Plateau(new IA(j1Name),new IA(j2Name),battle);
-			break;
-		}	
-		fireInitGame(battle, j1Name, j2Name, j1Flotte, j2Flotte);
+		TypeBateau currentBoat=null;
+		if(mode!=TypeMode.DEMO)
+			for (int i = 0; i < j1Flotte.size() && currentBoat==null; i++) 
+				currentBoat=j1Flotte.get(i);
+
+		plateau.setGame(mode,battle, j1Name, j2Name, j1Flotte, j2Flotte);	
+		fireInitGame(battle, j1Name, j2Name, taille, currentBoat);
 	}
-	
+
 	public void setMode(TypeMode mode) {
 		this.mode=mode;
-		
+
 		if(mode==TypeMode.DEMO)
 			initGame();
 		else

@@ -75,6 +75,7 @@ public class FlottePanel extends JPanel implements ItemListener {
             typeBateau = null;
  
         flotte.set(index, typeBateau);	
+        System.out.println(flotte);
 	}
 
 	public List<TypeBateau> getFlotte() {
