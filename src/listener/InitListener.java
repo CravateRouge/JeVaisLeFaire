@@ -8,6 +8,6 @@ import enumeration.TypeBattle;
 
 public interface InitListener extends EventListener {
 
-	public void initGame(TypeBattle battle, String j1Name, String j2Name, int taille, TypeBateau currentBoat);
+	public void initGame(String j1Nom, String j2Nom);
 
 }

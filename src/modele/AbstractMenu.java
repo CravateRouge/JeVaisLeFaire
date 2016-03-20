@@ -1,16 +1,28 @@
 package modele;
 
-import enumeration.TypeBateau;
-import enumeration.TypeBattle;
+import enumeration.TypeMode;
 import listener.BattleListener;
-import listener.FlotteListener;
 import listener.InitListener;
+import listener.J1NameListener;
 import listener.ModeListener;
 
 public class AbstractMenu extends AbstractModel {
 
 	public AbstractMenu() {
 		super();
+	}
+	
+	public void addModeListener(ModeListener listener){
+		listeners.add(ModeListener.class, listener);
+	}
+	
+	public void removeModeListener(ModeListener listener){
+		listeners.remove(ModeListener.class, listener);
+	}
+
+	protected void fireModeChanged(TypeMode mode){
+		for(ModeListener listener : listeners.getListeners(ModeListener.class))
+			listener.modeChoisi(mode);
 	}
 
 	public void addBattleListener(BattleListener listener){
@@ -21,23 +33,24 @@ public class AbstractMenu extends AbstractModel {
 		listeners.remove(BattleListener.class, listener);
 	}
 	
-	protected void fireBattleChoisie() {
+	protected void fireBattleChanged() {
 		for(BattleListener listener : listeners.getListeners(BattleListener.class))
 			listener.battleChoisie();
 	}
-
-	public void addModeListener(ModeListener listener){
-		listeners.add(ModeListener.class, listener);
+	
+	public void addJ1NameListener(J1NameListener listener){
+		listeners.add(J1NameListener.class, listener);
 	}
 	
-	public void removeModeListener(ModeListener listener){
-		listeners.remove(ModeListener.class, listener);
+	public void removeJ1NameListener(J1NameListener listener){
+		listeners.remove(J1NameListener.class, listener);
 	}
-
-	protected void fireModeChoisi(){
-		for(ModeListener listener : listeners.getListeners(ModeListener.class))
-			listener.modeChoisi();
+	
+	protected void fireJ1NameChanged() {
+		for(J1NameListener listener : listeners.getListeners(J1NameListener.class))
+			listener.J1NameChoisi();
 	}
+	
 	
 	public void addInitListener(InitListener listener){
 		listeners.add(InitListener.class, listener);
@@ -47,21 +60,9 @@ public class AbstractMenu extends AbstractModel {
 		listeners.remove(InitListener.class, listener);
 	}
 
-	protected void fireInitGame(TypeBattle battle, String j1Name, String j2Name, int taille, TypeBateau currentBoat) {
+	protected void fireStartGame(String j1Nom, String j2Nom) {
 		for(InitListener listener : listeners.getListeners(InitListener.class))
-			listener.initGame(battle, j1Name, j2Name, taille, currentBoat);
-	}
-	
-	public void addFlotteListener(FlotteListener listener){
-		listeners.add(FlotteListener.class, listener);
+			listener.initGame(j1Nom,j2Nom);
 	}
 
-	public void removeFlotteListener(FlotteListener listener){
-		listeners.remove(FlotteListener.class, listener);
-	}
-	
-	protected void fireFlotteChoisie() {
-		for(FlotteListener listener : listeners.getListeners(FlotteListener.class))
-			listener.flotteChoisie();
-	}
 }

@@ -4,23 +4,22 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import controleur.BatailleController;
+import controleur.BatailleControleur;
 import enumeration.TypeBattle;
 
 public class BattleAction extends AbstractAction {
-	
-	private BatailleController controller;
 	private TypeBattle battle;
+	private BatailleControleur c;
 
-	public BattleAction(BatailleController controller,TypeBattle battle) {
+	public BattleAction(BatailleControleur c, TypeBattle battle) {
 		super(battle.toString());
 		this.battle=battle;
-		this.controller=controller;
+		this.c=c;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		controller.notifyBattleChoisie(battle);
+		c.notifyBattleChoisie(battle);
 	}
 
 }

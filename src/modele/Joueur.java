@@ -1,45 +1,43 @@
 package modele;
 
-import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import enumeration.EtatFlotte;
 import enumeration.TypeBateau;
 
-public abstract class Joueur {
-	
+public class Joueur {
+
 	private String nom;
-	private Map<Case,TypeBateau> flotte;
-	private List<TypeBateau> tempFlotte;
-	
+	private Case[][] grille;
+	private Set<TypeBateau> flotte=EnumSet.allOf(TypeBateau.class);
+	private Map<Case, TypeBateau> warShips=new HashMap<Case, TypeBateau>();
+
 	/**
 	 * Le joueur va etre cree grace a un nom et sa flotte sera constituer par la suite.
 	 * @param n
 	 * Le nom du joueur 
 	 */
-	public Joueur(String n, List<TypeBateau> tempFlotte){
-		this.nom = n;
-		this.flotte = new HashMap<Case,TypeBateau>();
-		this.tempFlotte=new ArrayList<TypeBateau>(tempFlotte);
+	public Joueur(String n, int taille){
+		nom = n;
+		grille=new Case[taille][taille];
 	}
 	
-	/*@Débattre Constructeur inutile?*/
-	public Joueur(Joueur j){
-		this.nom = j.getNom();
-		this.flotte = j.getFlotte();
+	public boolean removeShip(TypeBateau boat) {
+		boolean rep=false;
+
+		flotte.remove(boat);
+
+		if(rep=flotte.isEmpty())
+			flotte.add(boat);
+
+		return rep;
 	}
 	
-	public String getNom(){
-		return this.nom;
+	public void addShip(TypeBateau boat) {
+		flotte.add(boat);
 	}
-	
-	/*@Débattre Getter inutile?*/
-	public Map<Case,TypeBateau> getFlotte(){
-		return this.flotte;
-	}
-	
 	/**
 	 * Permet de constituer la flotte du joueur en remplissant la Map.
 	 * @param c
@@ -47,8 +45,53 @@ public abstract class Joueur {
 	 * @param bateau
 	 * Le nom du bateau
 	 */
-	public boolean poseBateau(Case c, TypeBateau bateau){
-		return flotte.put(c, bateau) == null;
+
+	public Case getCase(int x, int y) {
+		return grille[x][y];
+	}
+
+	public Case setGrille(int x, int y) {
+		return grille[x][y]=new Case(x, y);
+	}
+
+	public void setNom(String tmpNom) {
+		if(!tmpNom.equals(""))
+			nom=tmpNom;
+	}
+
+	public String getNom() {
+		return nom;
+	} 
+	
+	public boolean placement(int x, int y){	
+		for (TypeBateau boat : TypeBateau.values()) {
+			if(flotte.remove(boat)){
+				grille[x][y].setOccupee();
+				warShips.put(grille[x][y], boat);
+				return flotte.isEmpty();
+			}
+		}
+		return true;
+	}
+	
+	public boolean tir(int x, int y){
+		boolean vide=false;
+
+			grille[x][y].setVisitee();
+		if(warShips.remove(grille[x][y])!=null)
+			vide=warShips.isEmpty();
+
+		return vide;
+	}
+
+	public int indication(Case origine) {
+		Case proche = null;
+		for (Case voisine : warShips.keySet()) {
+			if(proche == null || (proche != null && origine.getDistance(voisine) < origine.getDistance(proche)))
+				proche = voisine;
+		}
+		
+		return origine.getDistance(proche);	
 	}
 
 	/**
@@ -58,16 +101,6 @@ public abstract class Joueur {
 	 * @return
 	 * True si le bateau est touche ou false s'il est coule
 	 */
-	public EtatFlotte degat(Case c) {
-		return flotte.containsValue(flotte.remove(c))? EtatFlotte.TOUCHE : flotte.isEmpty()? EtatFlotte.COULE : EtatFlotte.BCOULE;
-	}
 
-	public TypeBateau getTempFlotte() {
-		return tempFlotte.get(0);
-	}
-
-	public void setTempFlotte() {
-		this.tempFlotte.remove(0);
-	}
 
 }

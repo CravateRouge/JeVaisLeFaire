@@ -4,6 +4,6 @@ import java.util.EventListener;
 
 public interface OccupeeListener extends EventListener {
 
-	public void caseOccupee(int x, int y);
+	public void caseOccupee();
 
 }

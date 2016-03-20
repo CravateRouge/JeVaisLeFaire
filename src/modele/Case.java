@@ -15,13 +15,6 @@ public class Case extends AbstractCase {
 		this.y = y;
 	}
 	
-	/*@Débattre Constructeur inutile*/
-	/** Constructeur par copie */
-	public Case(Case c){
-		this.x = c.getX();
-		this.y = c.getY();
-	}
-	
 	public int getX(){
 		return this.x;
 	}
@@ -29,6 +22,7 @@ public class Case extends AbstractCase {
 	public int getY(){
 		return this.y;
 	}
+	
 	/** Permet de savoir si la case a ete testee */
 	public boolean isVisitee(){
 		return this.visitee;
@@ -39,12 +33,12 @@ public class Case extends AbstractCase {
 	}
 	
 	public void setOccupee() {
-		this.occupee = !occupee;
-		fireCaseOccupee(x,y);
+		this.occupee = true;
+		fireCaseOccupee();
 	}
 	public void setVisitee(){
-		this.visitee = !visitee;
-		fireCaseVisitee(x,y);
+		this.visitee = true;
+		fireCaseVisitee(visitee && occupee);
 	}
 
 	public int getDistance(Case proche) {

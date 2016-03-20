@@ -17,9 +17,9 @@ public abstract class AbstractCase extends AbstractModel {
 		listeners.remove(OccupeeListener.class, listener);
 	}
 	
-	protected void fireCaseOccupee(int x, int y){
+	protected void fireCaseOccupee(){
 		for (OccupeeListener listener : listeners.getListeners(OccupeeListener.class)) {
-			listener.caseOccupee(x,y);
+			listener.caseOccupee();
 		}
 	}
 
@@ -31,9 +31,9 @@ public abstract class AbstractCase extends AbstractModel {
 		listeners.remove(VisiteeListener.class, listener);
 	}
 	
-	protected void fireCaseVisitee(int x, int y){
+	protected void fireCaseVisitee(boolean touche){
 		for (VisiteeListener listener : listeners.getListeners(VisiteeListener.class)) {
-			listener.caseVisitee(x,y);
+			listener.caseVisitee(touche);
 		}
 	}
 }
