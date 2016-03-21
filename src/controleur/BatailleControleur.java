@@ -4,28 +4,25 @@ import enumeration.TypeBateau;
 import enumeration.TypeBattle;
 import enumeration.TypeMode;
 import modele.Case;
-import modele.Menu;
+import modele.Plateau;
 import vue.BatailleFenetre;
 import vue.CaseButton;
 
 public class BatailleControleur {
 
-	private Menu modele;
+	private Plateau modele;
 	protected BatailleFenetre f;
 
 
 
 
-	public BatailleControleur(Menu modele){
+	public BatailleControleur(Plateau modele){
 		this.modele=modele;
 		f=new BatailleFenetre(this,modele.getTaille());				
 		f.display();
 		
-		modele.addModeListener(f);
-		modele.addBattleListener(f);
-		modele.addJ1NameListener(f);
-		modele.addInitListener(f);
-
+		modele.addMenuListener(f);
+		modele.addEvenementListener(f.getConsole());
 	}
 	
 	
@@ -68,8 +65,7 @@ public class BatailleControleur {
 
 	public void notifyCaseCree(CaseButton b, int x, int y) {
 		Case c=modele.creerCase(x,y);
-		c.addOccupeeListener(b);
-		c.addVisiteeListener(b);
+		c.addCaseListener(b);
 		
 	}
 
@@ -79,6 +75,13 @@ public class BatailleControleur {
 	public void notifyCasePressee(int x, int y) {
 		modele.casePressee(x,y);
 		
+	}
+
+
+
+
+	public void notifyDirChanged() {
+		modele.setHorizontal(!modele.isHorizontal());	
 	}
 	
 }

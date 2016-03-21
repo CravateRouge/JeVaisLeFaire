@@ -4,17 +4,15 @@ import enumeration.TypeBateau;
 import enumeration.TypeBattle;
 import enumeration.TypeMode;
 
-public class Menu extends AbstractMenu{
+public class Plateau extends AbstractPlateau{
 
 	private TypeBattle battle=TypeBattle.CLASSIQUE;
 	private TypeMode mode=TypeMode.DEMO;
-	private boolean secondeFlotte=false, end=false, positionnement=true;
+	private boolean secondeFlotte=false, end=false, positionnement=true, horizontal=true;
 	private Joueur j1, j2;
 	private int taille;
 
-
-
-	public Menu(){
+	public Plateau(){
 		this.taille=10;
 		j1=new Joueur("Philippe",taille);
 		j2=new Joueur("Mike",taille);
@@ -59,7 +57,7 @@ public class Menu extends AbstractMenu{
 		String tmpNom=jName;
 
 		if(mode == TypeMode.MULTI && !secondeFlotte){
-			secondeFlotte=true;
+			setSecondeFlotte(true);
 			j1.setNom(tmpNom);
 			fireJ1NameChanged();
 		}
@@ -75,8 +73,8 @@ public class Menu extends AbstractMenu{
 	}
 
 	public void finMenu(){
-		secondeFlotte=false;
-		fireStartGame(j1.getNom(),j2.getNom());
+		setSecondeFlotte(false);
+		fireStartGame(j1.getNom(),j2.getNom(),j1.nextBoat());
 	}
 
 
@@ -91,24 +89,31 @@ public class Menu extends AbstractMenu{
 
 	private void placement(int x, int y){
 		Joueur j=aQuiLeTour();
-		if(j.placement(x, y))
-		{
+		TypeBateau boat=j.placement(x, y, horizontal);
+		if(boat == null)
+			fireErrPos();
+		else{
+			if(j.getFlotte().isEmpty())
+			{
+				if(secondeFlotte)
+					setPositionnement(false);
 
-			if(secondeFlotte)
-				positionnement=false;
-
-			secondeFlotte=!secondeFlotte;
-			if(!positionnement)
-				secondeFlotte=true;
+				setSecondeFlotte(!secondeFlotte);
+				if(!positionnement)
+					setSecondeFlotte(true);
+			}
+			else
+				fireNextBoat(boat);
 		}
+
 	}
 
 	private void tir(int x, int y){
 		Joueur j=aQuiLeTour();
 		if(!j.getCase(x, y).isVisitee()){
-			System.out.println("nooon");
-			end=j.tir(x, y);
-			secondeFlotte=!secondeFlotte;
+			setEnd(j.tir(x, y));
+			if(!end)
+				setSecondeFlotte(!secondeFlotte);
 		}
 
 	}
@@ -139,5 +144,38 @@ public class Menu extends AbstractMenu{
 
 	public int getTaille() {
 		return taille;
+	}
+
+
+	private void setSecondeFlotte(boolean secondeFlotte) {
+		this.secondeFlotte = secondeFlotte;
+		if(secondeFlotte)
+			fireTourChange(j2.getNom());
+		else
+			fireTourChange(j1.getNom());
+	}
+
+	private void setPositionnement(boolean positionnement) {
+		this.positionnement = positionnement;
+		fireFinPose();
+	}
+
+	private void setEnd(boolean end) {
+		if(this.end != end){
+			this.end = end;
+			if(secondeFlotte)
+				fireEnd(j1.getNom());
+			else
+				fireEnd(j2.getNom());
+		}
+	}
+
+	public void setHorizontal(boolean horizontal) {
+		this.horizontal = horizontal;
+		fireDirChanged(horizontal);
+	}
+
+	public boolean isHorizontal() {
+		return horizontal;
 	}
 }

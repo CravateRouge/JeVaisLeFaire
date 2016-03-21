@@ -2,7 +2,10 @@ package listener;
 
 import java.util.EventListener;
 
-public interface VisiteeListener extends EventListener {
+public interface CaseListener extends EventListener {
+
+	public void caseOccupee();
 
 	public void caseVisitee(boolean touche);
+
 }

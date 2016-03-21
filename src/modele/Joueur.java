@@ -2,6 +2,7 @@ package modele;
 
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -63,17 +64,50 @@ public class Joueur {
 		return nom;
 	} 
 	
-	public boolean placement(int x, int y){	
-		for (TypeBateau boat : TypeBateau.values()) {
-			if(flotte.remove(boat)){
-				grille[x][y].setOccupee();
-				warShips.put(grille[x][y], boat);
-				return flotte.isEmpty();
-			}
+	public TypeBateau placement(int x, int y, boolean horizontal){
+		int tmp;
+		TypeBateau currentBoat=nextBoat();
+		
+		if(horizontal)
+			tmp=x;
+		else
+			tmp=y;
+		
+		if(tmp>grille.length-currentBoat.getTaille())
+			return null;
+
+		for (int i = 0; i < currentBoat.getTaille(); i++) {
+			if(horizontal)
+				if(grille[x+i][y].isOccupee())
+					return null;
+			else
+				if(grille[x+i][y].isOccupee())
+					return null;
 		}
-		return true;
+		
+		for (int i = 0; i < currentBoat.getTaille(); i++) {
+			grille[x][y].setOccupee();
+			warShips.put(grille[x][y], currentBoat);
+			if(horizontal)
+				x++;
+			else
+				y++;
+		}
+		
+		flotte.remove(currentBoat);
+		return nextBoat();
+		
 	}
 	
+	public TypeBateau nextBoat() {
+		TypeBateau currentBoat= TypeBateau.ZODIAC;
+		for (TypeBateau boat : flotte) {
+			if(currentBoat.getTaille()<boat.getTaille())
+				currentBoat=boat;
+		}
+		return currentBoat;
+	}
+
 	public boolean tir(int x, int y){
 		boolean vide=false;
 
@@ -92,6 +126,10 @@ public class Joueur {
 		}
 		
 		return origine.getDistance(proche);	
+	}
+
+	public Set<TypeBateau> getFlotte() {
+		return flotte;
 	}
 
 	/**

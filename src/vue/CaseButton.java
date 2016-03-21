@@ -8,10 +8,9 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 
 import controleur.BatailleControleur;
-import listener.OccupeeListener;
-import listener.VisiteeListener;
+import listener.CaseListener;
 
-public class CaseButton extends JButton implements ActionListener, OccupeeListener, VisiteeListener {
+public class CaseButton extends JButton implements ActionListener, CaseListener {
 private BatailleControleur c;
 private int x,y;
 

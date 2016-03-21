@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
@@ -23,18 +22,15 @@ import controleur.BatailleControleur;
 import enumeration.TypeBateau;
 import enumeration.TypeBattle;
 import enumeration.TypeMode;
-import listener.BattleListener;
-import listener.InitListener;
-import listener.J1NameListener;
-import listener.ModeListener;
+import listener.MenuListener;
 
-public class BatailleFenetre extends JFrame implements ActionListener, ModeListener, 
-BattleListener, J1NameListener, InitListener{
+public class BatailleFenetre extends JFrame implements ActionListener, MenuListener{
 	private JPanel mainPanel;
 	private JTextField field=null;
 	private BatailleControleur c;
 	private JLabel j1Nom, j2Nom;
-	private JTextArea console;
+	private Console console;
+	private JButton valider;
 
 	public BatailleFenetre(BatailleControleur c, int taille) {
 		super();
@@ -100,9 +96,9 @@ BattleListener, J1NameListener, InitListener{
 			menuPanel.add(new CheckBoatBox(c, boat));
 
 
-		JButton button = new JButton("validez");
-		menuPanel.add(button);
-		button.addActionListener(this);
+		valider = new JButton("validez");
+		menuPanel.add(valider);
+		valider.addActionListener(this);
 
 		return menuPanel;
 	}
@@ -122,18 +118,18 @@ BattleListener, J1NameListener, InitListener{
 	}
 
 	@Override
-	public void J1NameChoisi() {
+	public void j1NameChoisi() {
 		field.setText(null);	
 	}
 
 	@Override
-	public void initGame(String j1Nom, String j2Nom) {
+	public void initGame(String j1Nom, String j2Nom, TypeBateau boat) {
 		this.j1Nom.setText(j1Nom);
 		this.j2Nom.setText(j2Nom);
-		console.append("Pour poser un bateau clique sur la case en haut à gauche\n"
-				+ "afin de selectionner sa direction\n"
-				+ "puis appuye sur la case désirée.\n\n");
-		console.append(this.j1Nom.getText()+"place tes bateaux:\n");
+
+		console.append(this.j1Nom.getText()+" place tes bateaux:\n");
+		
+		console.nextBoat(boat);
 		((CardLayout) mainPanel.getLayout()).last(mainPanel);
 	}
 
@@ -156,7 +152,7 @@ BattleListener, J1NameListener, InitListener{
 	private JPanel buildSouth(){
 		JPanel south = new JPanel();
 		Dimension dscroll = new Dimension(800,85);
-		console = new JTextArea(2,5);
+		console = new Console(2,5);
 		console.setEditable(false);
 		JScrollPane scroll = new JScrollPane(console);
 		scroll.setPreferredSize(dscroll);
@@ -173,8 +169,8 @@ BattleListener, J1NameListener, InitListener{
 		Dimension d = new Dimension(50,50);
 		Border blackline = BorderFactory.createLineBorder(Color.BLACK,1);
 		Border blueline = BorderFactory.createLineBorder(Color.BLUE, 1);
-		for(int x = 0; x<taille;x++){
-			for(int y = 0; y<taille; y++){				
+		for(int y = 0; y<taille;y++){
+			for(int x = 0; x<taille; x++){				
 				if(x!=0 && y!=0){
 					button=new CaseButton(c,x,y);
 					button.setBackground(new Color(200));
@@ -184,16 +180,18 @@ BattleListener, J1NameListener, InitListener{
 					button=new JButton();
 					button.setBorder(blackline);
 
-					if(x==0 && y == 0)
+					if(x==0 && y == 0){
 						button.setBackground(Color.GRAY);
+						button.addActionListener(this);
+					}
 
 					else{
 						button.setBackground(new Color(100,100,100));
 
-						if(y == 0)
-							button.setText(x+"");
+						if(x == 0)
+							button.setText(y+"");
 						else
-							button.setText((char)(64+y)+"");
+							button.setText((char)(64+x)+"");
 					}
 				}
 
@@ -207,9 +205,14 @@ BattleListener, J1NameListener, InitListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		c.notifyNameChanged(field.getText());
+	public void actionPerformed(ActionEvent a) {
+		if(a.getSource() == valider)
+			c.notifyNameChanged(field.getText());
+		else
+			c.notifyDirChanged();
 	}
 
-
+	public Console getConsole() {
+		return console;
+	}
 }
