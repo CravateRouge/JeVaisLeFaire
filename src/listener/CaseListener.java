@@ -8,4 +8,6 @@ public interface CaseListener extends EventListener {
 
 	public void caseVisitee(boolean touche);
 
+	public void caseCachee();
+
 }

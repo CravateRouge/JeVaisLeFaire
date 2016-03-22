@@ -35,13 +35,16 @@ private int x,y;
 			setBackground(Color.RED);
 		else
 			setBackground(Color.DARK_GRAY);
-		
 	}
 
 	@Override
 	public void caseOccupee() {
 		setBackground(Color.GREEN);
-		
+	}
+
+	@Override
+	public void caseCachee() {
+		setBackground(new Color(200));	
 	}
 
 }

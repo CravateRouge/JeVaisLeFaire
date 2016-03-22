@@ -24,7 +24,7 @@ public class Joueur {
 		nom = n;
 		grille=new Case[taille][taille];
 	}
-	
+
 	public boolean removeShip(TypeBateau boat) {
 		boolean rep=false;
 
@@ -35,7 +35,7 @@ public class Joueur {
 
 		return rep;
 	}
-	
+
 	public void addShip(TypeBateau boat) {
 		flotte.add(boat);
 	}
@@ -63,28 +63,29 @@ public class Joueur {
 	public String getNom() {
 		return nom;
 	} 
-	
+
 	public TypeBateau placement(int x, int y, boolean horizontal){
 		int tmp;
 		TypeBateau currentBoat=nextBoat();
-		
+
 		if(horizontal)
 			tmp=x;
 		else
 			tmp=y;
-		
+
 		if(tmp>grille.length-currentBoat.getTaille())
 			return null;
 
 		for (int i = 0; i < currentBoat.getTaille(); i++) {
-			if(horizontal)
+			if(horizontal){
 				if(grille[x+i][y].isOccupee())
 					return null;
+			}
 			else
-				if(grille[x+i][y].isOccupee())
+				if(grille[x][y+i].isOccupee())
 					return null;
 		}
-		
+
 		for (int i = 0; i < currentBoat.getTaille(); i++) {
 			grille[x][y].setOccupee();
 			warShips.put(grille[x][y], currentBoat);
@@ -93,12 +94,12 @@ public class Joueur {
 			else
 				y++;
 		}
-		
+
 		flotte.remove(currentBoat);
 		return nextBoat();
-		
+
 	}
-	
+
 	public TypeBateau nextBoat() {
 		TypeBateau currentBoat= TypeBateau.ZODIAC;
 		for (TypeBateau boat : flotte) {
@@ -111,7 +112,7 @@ public class Joueur {
 	public boolean tir(int x, int y){
 		boolean vide=false;
 
-			grille[x][y].setVisitee();
+		grille[x][y].setVisitee();
 		if(warShips.remove(grille[x][y])!=null)
 			vide=warShips.isEmpty();
 
@@ -124,12 +125,19 @@ public class Joueur {
 			if(proche == null || (proche != null && origine.getDistance(voisine) < origine.getDistance(proche)))
 				proche = voisine;
 		}
-		
+
 		return origine.getDistance(proche);	
 	}
 
 	public Set<TypeBateau> getFlotte() {
 		return flotte;
+	}
+
+	public void cacheBateaux() {
+		for (Case c : warShips.keySet()) {
+			c.cache();
+		}
+		
 	}
 
 	/**

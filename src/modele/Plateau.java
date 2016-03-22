@@ -75,8 +75,39 @@ public class Plateau extends AbstractPlateau{
 	public void finMenu(){
 		setSecondeFlotte(false);
 		fireStartGame(j1.getNom(),j2.getNom(),j1.nextBoat());
+		if(mode == TypeMode.DEMO)
+			demo();
 	}
 
+	private void demo(){
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				while(!end){
+					actionIA();
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+			}
+		}).start();
+	}
+
+	private void actionIA() {
+		if(positionnement){
+			boolean tmp=secondeFlotte;
+			while(positionnement && tmp == secondeFlotte){
+				while(!placement(randomCardi(),randomCardi()));
+			}
+		}
+		else
+			tir(randomCardi(),randomCardi());
+	}
 
 	private void indication(int x, int y) {
 		Joueur j=aQuiLeTour();
@@ -87,23 +118,33 @@ public class Plateau extends AbstractPlateau{
 		return (int)(Math.random()*10);
 	}
 
-	private void placement(int x, int y){
+	private boolean placement(int x, int y){
 		Joueur j=aQuiLeTour();
 		TypeBateau boat=j.placement(x, y, horizontal);
-		if(boat == null)
+		if(boat == null){
 			fireErrPos();
+			return false;
+		}
 		else{
 			if(j.getFlotte().isEmpty())
 			{
+				if(mode == TypeMode.MULTI)
+					j.cacheBateaux();
+				else if(mode == TypeMode.SOLO && secondeFlotte)
+					j.cacheBateaux();
+					
 				if(secondeFlotte)
 					setPositionnement(false);
 
-				setSecondeFlotte(!secondeFlotte);
-				if(!positionnement)
+				if(positionnement)
+					setSecondeFlotte(!secondeFlotte);
+
+				else
 					setSecondeFlotte(true);
 			}
 			else
 				fireNextBoat(boat);
+			return true;
 		}
 
 	}
@@ -120,6 +161,7 @@ public class Plateau extends AbstractPlateau{
 
 
 	public void casePressee(int x, int y) {
+
 		if(end)
 			System.out.println("the end");
 		else{
@@ -135,8 +177,7 @@ public class Plateau extends AbstractPlateau{
 					indication(x,y);
 			}
 		}
-
-	}
+	}		
 
 	private Joueur aQuiLeTour(){
 		return secondeFlotte?j2:j1;
@@ -149,10 +190,18 @@ public class Plateau extends AbstractPlateau{
 
 	private void setSecondeFlotte(boolean secondeFlotte) {
 		this.secondeFlotte = secondeFlotte;
-		if(secondeFlotte)
+
+		if(secondeFlotte){
 			fireTourChange(j2.getNom());
-		else
+			if(mode == TypeMode.SOLO && positionnement)
+				actionIA();
+		}
+
+		else{
 			fireTourChange(j1.getNom());
+			if(mode == TypeMode.SOLO && !positionnement)
+				actionIA();
+		}
 	}
 
 	private void setPositionnement(boolean positionnement) {

@@ -27,4 +27,10 @@ public abstract class AbstractCase extends AbstractModel {
 			listener.caseVisitee(touche);
 		}
 	}
+	
+	protected void fireCaseCachee(){
+		for (CaseListener listener : listeners.getListeners(CaseListener.class)) {
+			listener.caseCachee();
+		}
+	}
 }
