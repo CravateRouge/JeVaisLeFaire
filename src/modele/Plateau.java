@@ -1,5 +1,6 @@
 package modele;
 
+import enumeration.EtatFlotte;
 import enumeration.TypeBateau;
 import enumeration.TypeBattle;
 import enumeration.TypeMode;
@@ -102,11 +103,12 @@ public class Plateau extends AbstractPlateau{
 		if(positionnement){
 			boolean tmp=secondeFlotte;
 			while(positionnement && tmp == secondeFlotte){
-				while(!placement(randomCardi(),randomCardi()));
+				while(!placement(randomCardi(),randomCardi(),randomBool()));
 			}
 		}
-		else
-			tir(randomCardi(),randomCardi());
+		else{
+			while(!tir(randomCardi(),randomCardi()));
+		}
 	}
 
 	private void indication(int x, int y) {
@@ -117,10 +119,19 @@ public class Plateau extends AbstractPlateau{
 	private int randomCardi() {
 		return (int)(Math.random()*10);
 	}
+	
+	private boolean randomBool(){
+		if((int)(Math.random()*2)==1){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
-	private boolean placement(int x, int y){
+	private boolean placement(int x, int y, boolean sens){
 		Joueur j=aQuiLeTour();
-		TypeBateau boat=j.placement(x, y, horizontal);
+		TypeBateau boat=j.placement(x, y, sens);
 		if(boat == null){
 			fireErrPos();
 			return false;
@@ -149,14 +160,18 @@ public class Plateau extends AbstractPlateau{
 
 	}
 
-	private void tir(int x, int y){
+	private boolean tir(int x, int y){
 		Joueur j=aQuiLeTour();
-		if(!j.getCase(x, y).isVisitee()){
-			setEnd(j.tir(x, y));
+		EtatFlotte tir = j.tir(x, y);
+		if(tir != EtatFlotte.DVISITEE){
+			if(tir == EtatFlotte.FCOULE){
+				setEnd(true);
+			}
 			if(!end)
 				setSecondeFlotte(!secondeFlotte);
+		return true;
 		}
-
+		return false;
 	}
 
 
@@ -166,7 +181,7 @@ public class Plateau extends AbstractPlateau{
 			System.out.println("the end");
 		else{
 			if(positionnement)
-				placement(x,y);
+				placement(x,y,horizontal);
 			else{
 				if(battle==TypeBattle.ALERTE || battle==TypeBattle.ARTILLERIE)
 					tir(randomCardi(),randomCardi());

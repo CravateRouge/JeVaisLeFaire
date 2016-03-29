@@ -34,7 +34,7 @@ private int x,y;
 		if(touche)
 			setBackground(Color.RED);
 		else
-			setBackground(Color.DARK_GRAY);
+			setBackground(Color.YELLOW);
 	}
 
 	@Override

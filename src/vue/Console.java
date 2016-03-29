@@ -1,6 +1,7 @@
 package vue;
 
 import javax.swing.JTextArea;
+import javax.swing.text.DefaultCaret;
 
 import enumeration.TypeBateau;
 import listener.EvenementListener;
@@ -10,6 +11,8 @@ public class Console extends JTextArea implements EvenementListener{
 	public Console(int rows, int columns) {
 		super(rows,columns);
 		setEditable(false);
+		DefaultCaret caret = (DefaultCaret)this.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		
 		append("Pour poser un bateau clique sur la case en haut à gauche afin de selectionner"
 				+ " sa direction puis appuye sur la case désirée.\n\n");

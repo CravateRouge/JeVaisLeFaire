@@ -6,14 +6,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import enumeration.EtatFlotte;
 import enumeration.TypeBateau;
 
 public class Joueur {
 
-	private String nom;
-	private Case[][] grille;
-	private Set<TypeBateau> flotte=EnumSet.allOf(TypeBateau.class);
-	private Map<Case, TypeBateau> warShips=new HashMap<Case, TypeBateau>();
+	protected String nom;
+	protected Case[][] grille;
+	protected Set<TypeBateau> flotte=EnumSet.allOf(TypeBateau.class);
+	protected Map<Case, TypeBateau> warShips=new HashMap<Case, TypeBateau>();
 
 	/**
 	 * Le joueur va etre cree grace a un nom et sa flotte sera constituer par la suite.
@@ -23,6 +24,21 @@ public class Joueur {
 	public Joueur(String n, int taille){
 		nom = n;
 		grille=new Case[taille][taille];
+	}
+	
+	public Joueur(Joueur j){
+		this.nom = j.getNom();
+		this.grille = j.getGrille();
+		this.flotte = j.getFlotte();
+		this.warShips = j.getWarShips();
+	}
+
+	public Case[][] getGrille() {
+		return grille;
+	}
+
+	public Map<Case, TypeBateau> getWarShips() {
+		return warShips;
 	}
 
 	public boolean removeShip(TypeBateau boat) {
@@ -39,14 +55,10 @@ public class Joueur {
 	public void addShip(TypeBateau boat) {
 		flotte.add(boat);
 	}
-	/**
-	 * Permet de constituer la flotte du joueur en remplissant la Map.
-	 * @param c
-	 * La case dans laquelle va se trouver le bateau
-	 * @param bateau
-	 * Le nom du bateau
-	 */
 
+	public Set<TypeBateau> getFlotte() {
+		return flotte;
+	}
 	public Case getCase(int x, int y) {
 		return grille[x][y];
 	}
@@ -109,14 +121,19 @@ public class Joueur {
 		return currentBoat;
 	}
 
-	public boolean tir(int x, int y){
-		boolean vide=false;
-
-		grille[x][y].setVisitee();
-		if(warShips.remove(grille[x][y])!=null)
-			vide=warShips.isEmpty();
-
-		return vide;
+	public EtatFlotte tir(int x, int y){
+		
+		if(!getCase(x, y).isVisitee()){
+			grille[x][y].setVisitee();
+			if(warShips.remove(grille[x][y])!=null){
+				if(warShips.isEmpty()){
+					return EtatFlotte.FCOULE;
+				}
+				return EtatFlotte.TOUCHE;
+			}
+			return EtatFlotte.SAUVE;
+		}
+		return EtatFlotte.DVISITEE;
 	}
 
 	public int indication(Case origine) {
@@ -127,10 +144,6 @@ public class Joueur {
 		}
 
 		return origine.getDistance(proche);	
-	}
-
-	public Set<TypeBateau> getFlotte() {
-		return flotte;
 	}
 
 	public void cacheBateaux() {
