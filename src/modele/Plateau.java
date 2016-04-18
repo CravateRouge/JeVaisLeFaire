@@ -12,6 +12,7 @@ public class Plateau extends AbstractPlateau{
 	private boolean secondeFlotte=false, end=false, positionnement=true, horizontal=true;
 	private Joueur j1, j2;
 	private int taille;
+	private int arti;
 
 	public Plateau(){
 		this.taille=10;
@@ -78,11 +79,14 @@ public class Plateau extends AbstractPlateau{
 		fireStartGame(j1.getNom(),j2.getNom(),j1.nextBoat());
 		if(mode == TypeMode.DEMO)
 			demo();
+		else if(mode == TypeMode.SOLO)
+			solo();
 	}
 
 	private void demo(){
+		j1 = new IA(j1);
+		j2 = new IA(j2);
 		new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				while(!end){
@@ -98,6 +102,10 @@ public class Plateau extends AbstractPlateau{
 			}
 		}).start();
 	}
+	
+	private void solo(){
+		j2 = new IA(j2);
+	}
 
 	private void actionIA() {
 		if(positionnement){
@@ -107,13 +115,13 @@ public class Plateau extends AbstractPlateau{
 			}
 		}
 		else{
-			while(!tir(randomCardi(),randomCardi()));
+			while(tir(randomCardi(),randomCardi()) == EtatFlotte.DVISITEE);
 		}
 	}
 
 	private void indication(int x, int y) {
 		Joueur j=aQuiLeTour();
-		//fireIndication(j.indication(new Case(x,y)));
+		fireIndication(j.indication(new Case(x,y)));
 	}
 
 	private int randomCardi() {
@@ -160,18 +168,24 @@ public class Plateau extends AbstractPlateau{
 
 	}
 
-	private boolean tir(int x, int y){
+	private EtatFlotte tir(int x, int y){
 		Joueur j=aQuiLeTour();
-		EtatFlotte tir = j.tir(x, y);
+		EtatFlotte tir;
+		if((!(j instanceof IA) && mode == TypeMode.SOLO) || mode == TypeMode.DEMO){
+			tir = j.tirIA();
+		}
+		else{
+			tir = j.tir(x, y);
+		}
 		if(tir != EtatFlotte.DVISITEE){
 			if(tir == EtatFlotte.FCOULE){
 				setEnd(true);
 			}
 			if(!end)
 				setSecondeFlotte(!secondeFlotte);
-		return true;
+
 		}
-		return false;
+		return tir;
 	}
 
 
@@ -183,8 +197,9 @@ public class Plateau extends AbstractPlateau{
 			if(positionnement)
 				placement(x,y,horizontal);
 			else{
-				if(battle==TypeBattle.ALERTE || battle==TypeBattle.ARTILLERIE)
-					tir(randomCardi(),randomCardi());
+				if(battle==TypeBattle.ALERTE || battle==TypeBattle.ARTILLERIE){
+					artillerie(x);
+				}
 				else
 					tir(x,y);
 
@@ -192,7 +207,23 @@ public class Plateau extends AbstractPlateau{
 					indication(x,y);
 			}
 		}
-	}		
+	}
+	
+	private void artillerie(int x){
+		Joueur j = aQuiLeTour();
+		int y = 0;
+		if(arti == 0){	
+			arti = 1;
+			while(arti == 1){
+				j.grille[x][y].arti();
+				y++;
+			}
+		}
+		else{
+			arti = -1;
+			j.tir(x, y);
+		}
+	}
 
 	private Joueur aQuiLeTour(){
 		return secondeFlotte?j2:j1;
@@ -207,13 +238,13 @@ public class Plateau extends AbstractPlateau{
 		this.secondeFlotte = secondeFlotte;
 
 		if(secondeFlotte){
-			fireTourChange(j2.getNom());
+			fireTourChange(j1.getNom());
 			if(mode == TypeMode.SOLO && positionnement)
 				actionIA();
 		}
 
 		else{
-			fireTourChange(j1.getNom());
+			fireTourChange(j2.getNom());
 			if(mode == TypeMode.SOLO && !positionnement)
 				actionIA();
 		}

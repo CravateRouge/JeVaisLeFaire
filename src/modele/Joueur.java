@@ -1,5 +1,6 @@
 package modele;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,6 +16,11 @@ public class Joueur {
 	protected Case[][] grille;
 	protected Set<TypeBateau> flotte=EnumSet.allOf(TypeBateau.class);
 	protected Map<Case, TypeBateau> warShips=new HashMap<Case, TypeBateau>();
+	private ArrayList<Case> tirs;
+	private boolean direction;
+	private boolean sens;//true si horizontal et false si vertical
+	private Case memoire = null;
+	private Case derniere = null;
 
 	/**
 	 * Le joueur va etre cree grace a un nom et sa flotte sera constituer par la suite.
@@ -24,6 +30,7 @@ public class Joueur {
 	public Joueur(String n, int taille){
 		nom = n;
 		grille=new Case[taille][taille];
+		tirs = new ArrayList<Case>();
 	}
 	
 	public Joueur(Joueur j){
@@ -31,6 +38,7 @@ public class Joueur {
 		this.grille = j.getGrille();
 		this.flotte = j.getFlotte();
 		this.warShips = j.getWarShips();
+		tirs = new ArrayList<Case>();
 	}
 
 	public Case[][] getGrille() {
@@ -122,7 +130,7 @@ public class Joueur {
 	}
 
 	public EtatFlotte tir(int x, int y){
-		
+		System.out.println("tir de moi");
 		if(!getCase(x, y).isVisitee()){
 			grille[x][y].setVisitee();
 			if(warShips.remove(grille[x][y])!=null){
@@ -152,14 +160,198 @@ public class Joueur {
 		}
 		
 	}
+	public EtatFlotte tirIA(){
+		if(memoire == null){
+			int x = (int)(Math.random()*10);
+			int y = (int)(Math.random()*10);
+			Case test = new Case(x,y);
+			if(!getCase(x, y).isVisitee()){
+				tirs.add(test);
+				grille[x][y].setVisitee();
+				if(warShips.remove(grille[x][y])!=null){
+					memoire = new Case(test);
+					if(warShips.isEmpty()){
+						memoire = null;
+						return EtatFlotte.FCOULE;
+					}
+					return EtatFlotte.TOUCHE;
+				}
+				return EtatFlotte.SAUVE;
+			}
+			return EtatFlotte.DVISITEE;
+		}
+		else{
+			if(derniere == null){
+				int a = 0,o = 0,x,y;
+				Case testsens;
+				do{
+				if((int)(Math.random()+0.1)==0){
+					if((int)(Math.random()+0.1)==0){a = -1;}
+					else{a = 1;}
+				}
+				else{
+					if((int)(Math.random()+0.1)==0){o = -1;}
+					else{o = 1;}
+				}
+				x = memoire.getX()+a;
+				y = memoire.getY()+o;
+				 testsens = new Case(x,y);
+				}while(!(x>=0 && x<10 && y>=0 && y<10));
+				if(!getCase(x, y).isVisitee()){
+					tirs.add(testsens);
+					grille[x][y].setVisitee();
+					TypeBateau b = warShips.remove(grille[x][y]);
+					if(b!=null){
+						derniere = new Case(testsens);
+						sens = (o==1);
+						direction = (a==1);
+						if(!warShips.containsValue(b)){
+							memoire = null;
+							derniere = null;
+							if(warShips.isEmpty()){
+								return EtatFlotte.FCOULE;
+							}
+							return EtatFlotte.BCOULE;
+						}
+						return EtatFlotte.TOUCHE;
+					}
+					return EtatFlotte.SAUVE;
+				}
+				return EtatFlotte.DVISITEE;
+			}
+			else{
+				System.out.println("boucle3");
+				if(!sens){
+					if(direction){
+						int x = derniere.getX()+1;
+						int y = derniere.getY();
+						derniere = new Case(x,y);
+						if(x>=0 && x<10 && y>=0 && y<10){
+							if(!getCase(x, y).isVisitee()){
+								tirs.add(memoire);
+								grille[x][y].setVisitee();
+								TypeBateau b = warShips.remove(grille[x][y]);
+								if(b!=null){
+									if(!warShips.containsValue(b)){
+										memoire = null;
+										derniere = null;
+										if(warShips.isEmpty()){
+											return EtatFlotte.FCOULE;
+										}
+										return EtatFlotte.BCOULE;
+									}
+									return EtatFlotte.TOUCHE;
+								}
+								derniere = new Case(memoire);
+								direction = !direction;
+								return EtatFlotte.SAUVE;
+							}
+							return EtatFlotte.DVISITEE;
+						}
+						derniere = new Case(memoire);
+						direction = !direction;
+						return EtatFlotte.DVISITEE;
+					}
+				else{
+					int x = derniere.getX()-1;
+					int y = derniere.getY();
+					derniere = new Case(x,y);
+					if(x>=0 && x<10 && y>=0 && y<10){
+						if(!getCase(x, y).isVisitee()){
+							tirs.add(memoire);
+							grille[x][y].setVisitee();
+							TypeBateau b = warShips.remove(grille[x][y]);
+							if(b!=null){
+								if(!warShips.containsValue(b)){
+									memoire = null;
+									derniere = null;
+									if(warShips.isEmpty()){
+										return EtatFlotte.FCOULE;
+									}
+									return EtatFlotte.BCOULE;
+								}
+								return EtatFlotte.TOUCHE;
+							}
+							derniere = new Case(memoire);
+							direction = !direction;
+							return EtatFlotte.SAUVE;
+						}
+						return EtatFlotte.DVISITEE;
+					}
+					derniere = new Case(memoire);
+					direction = !direction;
+					return EtatFlotte.DVISITEE;
+				}
+				}
+				else{
+					if(direction){
+						int x = derniere.getX();
+						int y = derniere.getY()-1;
+						derniere = new Case(x,y);
+						System.out.println(derniere);
+						if(x>=0 && x<10 && y>=0 && y<10){
+							if(!getCase(x, y).isVisitee()){
+								tirs.add(memoire);
+								grille[x][y].setVisitee();
+								TypeBateau b = warShips.remove(grille[x][y]);
+								if(b!=null){
+									if(!warShips.containsValue(b)){
+										System.out.println("Pas normal");
+										memoire = null;
+										derniere = null;
+										if(warShips.isEmpty()){
+											return EtatFlotte.FCOULE;
+										}
+										return EtatFlotte.BCOULE;
+									}
+									return EtatFlotte.TOUCHE;
+								}
+								derniere = new Case(memoire);
+								direction = !direction;
+								return EtatFlotte.SAUVE;
+							}
+							return EtatFlotte.DVISITEE;
+						}
+						derniere = new Case(memoire);
+						direction = !direction;
+						return EtatFlotte.DVISITEE;
+					}
+					else{
+						int x = derniere.getX();
+						int y = derniere.getY()+1;
+						derniere = new Case(x,y);
+						System.out.println(derniere);
+						if(x>=0 && x<10 && y>=0 && y<10){
+							if(!getCase(x, y).isVisitee()){
+								tirs.add(memoire);
+								grille[x][y].setVisitee();
+								TypeBateau b = warShips.remove(grille[x][y]);
+								if(b!=null){
+									if(!warShips.containsValue(b)){
+										System.out.println("Pas normal");
+										memoire = null;
+										derniere = null;
+										if(warShips.isEmpty()){
+											return EtatFlotte.FCOULE;
+										}
+										return EtatFlotte.BCOULE;
+									}
+									return EtatFlotte.TOUCHE;
+								}
+								derniere = new Case(memoire);
+								direction = !direction;
+								return EtatFlotte.SAUVE;
+							}
+							return EtatFlotte.DVISITEE;
+						}
+					}
+					derniere = new Case(memoire);
+					direction = !direction;
+					return EtatFlotte.DVISITEE;
+				}
 
-	/**
-	 * Inflige le degat au bateau.
-	 * @param c
-	 * La case qui a ete touchee
-	 * @return
-	 * True si le bateau est touche ou false s'il est coule
-	 */
-
+			}
+		}
+	}
 
 }

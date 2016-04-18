@@ -36,6 +36,10 @@ private int x,y;
 		else
 			setBackground(Color.YELLOW);
 	}
+	
+	public void caseArti(){
+		setBackground(Color.CYAN);
+	}
 
 	@Override
 	public void caseOccupee() {

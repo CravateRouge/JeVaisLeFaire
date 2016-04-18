@@ -28,6 +28,12 @@ public abstract class AbstractCase extends AbstractModel {
 		}
 	}
 	
+	protected void fireCaseArtillerie(){
+		for (CaseListener listener : listeners.getListeners(CaseListener.class)) {
+			listener.caseArti();
+		}
+	}
+	
 	protected void fireCaseCachee(){
 		for (CaseListener listener : listeners.getListeners(CaseListener.class)) {
 			listener.caseCachee();

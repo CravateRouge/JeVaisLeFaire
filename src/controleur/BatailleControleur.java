@@ -77,7 +77,7 @@ public class BatailleControleur {
 		
 	}
 
-
+	
 
 
 	public void notifyDirChanged() {

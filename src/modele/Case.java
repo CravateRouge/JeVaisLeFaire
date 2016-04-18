@@ -15,6 +15,15 @@ public class Case extends AbstractCase {
 		this.y = y;
 	}
 	
+	public Case(Case c) {
+		this(c.getX(),c.getY());
+	}
+
+	@Override
+	public String toString() {
+		return "Case [x=" + x + ", y=" + y + ", visitee=" + visitee + ", occupee=" + occupee + "]";
+	}
+
 	public int getX(){
 		return this.x;
 	}
@@ -39,6 +48,10 @@ public class Case extends AbstractCase {
 	public void setVisitee(){
 		this.visitee = true;
 		fireCaseVisitee(visitee && occupee);
+	}
+	
+	public void arti(){
+		fireCaseArtillerie();
 	}
 
 	public int getDistance(Case proche) {

@@ -77,5 +77,10 @@ public class AbstractPlateau extends AbstractModel {
 			listener.dirChanged(horizontal);
 	}
 	
+	protected void fireIndication(int indic){
+		for(EvenementListener listener : listeners.getListeners(EvenementListener.class))
+			listener.indication(indic);
+	}
+	
 	
 }

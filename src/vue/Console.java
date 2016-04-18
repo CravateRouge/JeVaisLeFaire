@@ -53,5 +53,9 @@ public class Console extends JTextArea implements EvenementListener{
 			append("verticale\n");
 		
 	}
+	
+	public void indication(int indic){
+		append("Bateau le plus proche à :" + indic + "près\n");
+	}
 
 }

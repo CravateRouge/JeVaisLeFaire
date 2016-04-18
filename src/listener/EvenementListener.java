@@ -16,7 +16,7 @@ public interface EvenementListener extends EventListener {
 
 	public void end(String jWin);
 
-	void tourChange(String nom);
+	public void tourChange(String nom);
 
-	
+	public void indication(int indic);
 }

@@ -10,4 +10,5 @@ public interface CaseListener extends EventListener {
 
 	public void caseCachee();
 
+	public void caseArti();
 }
