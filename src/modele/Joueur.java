@@ -12,10 +12,10 @@ import enumeration.TypeBateau;
 
 public class Joueur {
 
-	protected String nom;
-	protected Case[][] grille;
-	protected Set<TypeBateau> flotte=EnumSet.allOf(TypeBateau.class);
-	protected Map<Case, TypeBateau> warShips=new HashMap<Case, TypeBateau>();
+	private String nom;
+	private Case[][] grille;
+	private Set<TypeBateau> flotte=EnumSet.allOf(TypeBateau.class);
+	private Map<Case, TypeBateau> warShips=new HashMap<Case, TypeBateau>();
 	private ArrayList<Case> tirs;
 	private boolean direction;
 	private boolean sens;//true si horizontal et false si vertical

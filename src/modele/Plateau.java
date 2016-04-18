@@ -215,7 +215,7 @@ public class Plateau extends AbstractPlateau{
 		if(arti == 0){	
 			arti = 1;
 			while(arti == 1){
-				j.grille[x][y].arti();
+				j.getGrille()[x][y].arti();
 				y++;
 			}
 		}
