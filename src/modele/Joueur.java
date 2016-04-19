@@ -130,7 +130,6 @@ public class Joueur {
 	}
 
 	public EtatFlotte tir(int x, int y){
-		System.out.println("tir de moi");
 		if(!getCase(x, y).isVisitee()){
 			grille[x][y].setVisitee();
 			if(warShips.remove(grille[x][y])!=null){

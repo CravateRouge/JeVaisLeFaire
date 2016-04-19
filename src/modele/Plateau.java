@@ -12,7 +12,9 @@ public class Plateau extends AbstractPlateau{
 	private boolean secondeFlotte=false, end=false, positionnement=true, horizontal=true;
 	private Joueur j1, j2;
 	private int taille;
-	private int arti;
+	private boolean arti = true;
+	private int artX;
+	private int artY;
 
 	public Plateau(){
 		this.taille=10;
@@ -183,7 +185,6 @@ public class Plateau extends AbstractPlateau{
 			}
 			if(!end)
 				setSecondeFlotte(!secondeFlotte);
-
 		}
 		return tir;
 	}
@@ -209,20 +210,42 @@ public class Plateau extends AbstractPlateau{
 		}
 	}
 	
-	private void artillerie(int x){
-		Joueur j = aQuiLeTour();
-		int y = 0;
-		if(arti == 0){	
-			arti = 1;
-			while(arti == 1){
-				j.getGrille()[x][y].arti();
-				y++;
+	private void artillerie(final int x){
+		Thread thread = new Thread(new Runnable() {
+			Joueur j = aQuiLeTour();
+			public void run() {
+				if(arti){
+					artX = x;
+					artY = 0;
+					arti = false;
+					while(!arti){
+						if(!j.getGrille()[x][artY].isVisitee()){
+							j.getGrille()[x][artY].arti();
+							artY++;
+							if(artY > 9) artY = 0;
+							try {
+								Thread.sleep(500);
+								if(artY == 0) 
+									j.getGrille()[x][9].cache();
+								else 
+									j.getGrille()[x][artY-1].cache();
+							} catch (InterruptedException e) {
+							}
+
+						}
+						else artY++;
+					}
+				}
+				else{
+					arti = true;
+					if(j.getGrille()[x][artY].isVisitee())
+						tir(artX,artY+1);
+					tir(artX, artY);
+					Thread.currentThread().interrupt();
+				}
 			}
-		}
-		else{
-			arti = -1;
-			j.tir(x, y);
-		}
+		});
+		thread.start();
 	}
 
 	private Joueur aQuiLeTour(){
@@ -245,8 +268,9 @@ public class Plateau extends AbstractPlateau{
 
 		else{
 			fireTourChange(j2.getNom());
-			if(mode == TypeMode.SOLO && !positionnement)
+			if(mode == TypeMode.SOLO && !positionnement){
 				actionIA();
+			}
 		}
 	}
 
